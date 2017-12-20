@@ -11,5 +11,5 @@ resource "aws_route53_record" "failover" {
   }
 
   set_identifier = "${var.set_identifier}"
-  records        = ["${var.records}"]
+  records        = ["${split(",",var.records)}"]
 }

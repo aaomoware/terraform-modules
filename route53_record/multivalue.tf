@@ -10,5 +10,5 @@ resource "aws_route53_record" "multivalue" {
   }
 
   set_identifier = "${var.set_identifier}"
-  records        = ["${var.records}"]
+  records        = ["${split(",",var.records)}"]
 }
