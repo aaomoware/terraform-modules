@@ -1,5 +1,5 @@
 module "iam" {
-  source = "git@github.com:aaomoware/terraform-modules.git//iam"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/iam"
 
 # - users
   iam_user_names                       = "${var.iam_user_names}"

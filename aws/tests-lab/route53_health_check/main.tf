@@ -1,5 +1,5 @@
 module "tcp_ip_address" {
-  source = "git@github.com:aaomoware/terraform-modules.git//route53_health_check"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_health_check"
 
   port                  = 53
   type                  = "TCP"
@@ -12,7 +12,7 @@ module "tcp_ip_address" {
 }
 
 module "tcp_domain_name" {
-  source = "git@github.com:aaomoware/terraform-modules.git//route53_health_check"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_health_check"
 
   port                  = 80
   type                  = "TCP"
@@ -25,7 +25,7 @@ module "tcp_domain_name" {
 }
 
 module "http_ip_address" {
-  source = "git@github.com:aaomoware/terraform-modules.git//route53_health_check"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_health_check"
 
   port                  = 80
   type                  = "HTTP"
@@ -39,7 +39,7 @@ module "http_ip_address" {
 
 
 module "https_domain_name" {
-  source = "git@github.com:aaomoware/terraform-modules.git//route53_health_check"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_health_check"
 
   port                   = 443
   type                   = "HTTPS"
@@ -53,7 +53,7 @@ module "https_domain_name" {
 
 
 module "http_domain_name" {
-  source = "git@github.com:aaomoware/terraform-modules.git//route53_health_check"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_health_check"
 
   port                   = 80
   type                   = "HTTP"

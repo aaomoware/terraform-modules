@@ -1,5 +1,5 @@
 module "route53_record_simple" {
-  source = "../../route53_record"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_record"
 
   name    = "planet.mars.ufo"
   type    = "A"
@@ -9,7 +9,7 @@ module "route53_record_simple" {
 }
 
 module "route53_record_alias" {
-  source = "../../route53_record"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_record"
 
   name       = "planet.earth.steve"
   alias      = true
@@ -20,7 +20,7 @@ module "route53_record_alias" {
 }
 
 module "route53_record_weighted" {
-  source = "../../route53_record"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_record"
 
   name      = "planet.mars.ufo"
   type      = "A"
@@ -32,7 +32,7 @@ module "route53_record_weighted" {
 }
 
 module "route53_record_geolocation_country" {
-  source = "../../route53_record"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_record"
 
   name         = "planet.venus.russia"
   type         = "CNAME"
@@ -45,7 +45,7 @@ module "route53_record_geolocation_country" {
 }
 
 module "route53_record_geolocation_continent" {
-  source = "../../route53_record"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/route53_record"
 
   name         = "planet.earth.africa"
   type         = "CNAME"
