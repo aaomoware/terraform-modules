@@ -8,6 +8,6 @@ resource "aws_subnet" "subnets" {
 
   tags {
     Env  = "${var.env}"
-    Name = "${var.name}-${substr(element(var.availability_zones,count.index),0,-1)}"
+    Name = "${var.name}-${element(var.availability_zones, count.index)}"
   }
 }
