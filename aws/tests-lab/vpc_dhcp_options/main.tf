@@ -1,5 +1,5 @@
 module "dns" {
-  source = "../../vpc_dhcp_options"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/vpc_dhcp_options"
 
   name                 = "dns"
   domain_name          = "on.venus"
@@ -7,21 +7,21 @@ module "dns" {
 }
 
 module "ntp" {
-  source = "../../vpc_dhcp_options"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/vpc_dhcp_options"
 
   name                 = "ntp"
   ntp_servers          = ["192.168.1.4"]
 }
 
 module "netbios" {
-  source = "../../vpc_dhcp_options"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/vpc_dhcp_options"
 
   name                 = "netbios"
   netbios_name_servers = ["192.168.1.3"]
 }
 
 module "ntp_dns" {
-  source = "../../vpc_dhcp_options"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/vpc_dhcp_options"
 
   name                 = "ntp_dns"
   ntp_servers          = ["192.168.1.4"]
@@ -29,7 +29,7 @@ module "ntp_dns" {
 }
 
 module "ntp_dns_netbios" {
-  source = "../../vpc_dhcp_options"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/vpc_dhcp_options"
 
   name                 = "ntp_dns_netbios"
   ntp_servers          = ["192.168.1.4"]
@@ -38,7 +38,7 @@ module "ntp_dns_netbios" {
 }
 
 module "all_options" {
-  source = "../../vpc_dhcp_options"
+  source = "git@github.com:aaomoware/terraform-modules.git//aws/vpc_dhcp_options"
 
   name                 = "all_options"
   domain_name          = "on.venus"
