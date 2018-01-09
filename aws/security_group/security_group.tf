@@ -56,7 +56,6 @@ resource "aws_security_group" "name_prefix" {
     from_port        = "${var.egress_from_port}"
     protocol         = "${var.egress_protocol}"
     cidr_blocks      = ["${var.egress_cidr_blocks}"]
-    prefix_list_ids  = ["${var.prefix_list_ids}"]
     security_groups  = ["${var.egress_security_groups}"]
     prefix_list_ids  = ["${var.egress_prefix_list_ids}"]
     ipv6_cidr_blocks = ["${var.egress_ipv6_cidr_blocks}"]

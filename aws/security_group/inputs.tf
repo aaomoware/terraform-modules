@@ -2,7 +2,7 @@ variable name                     { default = "" }
 variable vpc_id                   { default = "" }
 variable description              { default = "" }
 
-variable self                     { default = false }
+variable selF                     { default = false }
 variable name_prefix              { default = false }
 variable revoke_rules_on_delete   { default = false }
 
