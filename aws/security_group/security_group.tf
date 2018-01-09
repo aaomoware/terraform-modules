@@ -8,7 +8,7 @@ resource "aws_security_group" "name" {
   revoke_rules_on_delete = "${var.revoke_rules_on_delete}"
 
   ingress {
-    self             = "${var.selF}"
+    self             = "${var.ingress_self}"
     to_port          = "${var.ingress_to_port}"
     from_port        = "${var.ingress_from_port}"
     protocol         = "${var.ingress_protocol}"
@@ -18,7 +18,7 @@ resource "aws_security_group" "name" {
   }
 
   egress {
-    self             = "${var.selF}"
+    self             = "${var.egress_self}"
     to_port          = "${var.egress_to_port}"
     from_port        = "${var.egress_from_port}"
     protocol         = "${var.egress_protocol}"
@@ -40,7 +40,7 @@ resource "aws_security_group" "name_prefix" {
   revoke_rules_on_delete = "${var.revoke_rules_on_delete}"
 
   ingress {
-    self             = "${var.selF}"
+    self             = "${var.ingress_self}"
     to_port          = "${var.ingress_to_port}"
     from_port        = "${var.ingress_from_port}"
     protocol         = "${var.ingress_protocol}"
@@ -50,7 +50,7 @@ resource "aws_security_group" "name_prefix" {
   }
 
   egress {
-    self             = "${var.selF}"
+    self             = "${var.egress_self}"
     to_port          = "${var.egress_to_port}"
     from_port        = "${var.egress_from_port}"
     protocol         = "${var.egress_protocol}"
