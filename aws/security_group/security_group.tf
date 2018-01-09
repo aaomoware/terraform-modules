@@ -27,6 +27,10 @@ resource "aws_security_group" "name" {
     prefix_list_ids  = ["${var.egress_prefix_list_ids}"]
     ipv6_cidr_blocks = ["${var.egress_ipv6_cidr_blocks}"]
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 
@@ -58,5 +62,9 @@ resource "aws_security_group" "name_prefix" {
     security_groups  = ["${var.egress_security_groups}"]
     prefix_list_ids  = ["${var.egress_prefix_list_ids}"]
     ipv6_cidr_blocks = ["${var.egress_ipv6_cidr_blocks}"]
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
