@@ -4,10 +4,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     origin_id               = "${var.origin_id}"
     domain_name             = "${var.domain_name}"
-    price_class             = "${var.price_class}"
     origin_path             = "${var.origin_path}"
     custom_header           = "${var.custom_header}"
-    custom_origin_config    = "${var.custom_origin_config}"
 
     s3_origin_config {
       origin_access_identity = "${var.origin_access_identity}"
@@ -27,6 +25,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   aliases             = ["${var.aliases}"]
   comment             = "${var.comment}"
   web_acl_id          = "${var.web_acl_id}"
+  price_class         = "${var.price_class}"
   is_ipv6_enabled     = "${var.is_ipv6_enabled}"
   default_root_object = "${var.default_root_object}"
 
@@ -36,13 +35,14 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     include_cookies = "${var.include_cookies}"
   }
 
-  default_cache_behavior {
+  cache_behavior {
     max_ttl                     = "${var.max_ttl}"
     min_ttl                     = "${var.min_ttl}"
     compress                    = "${var.compress}"
     default_ttl                 = "${var.default_ttl}"
     path_pattern                = "${var.path_pattern}"
     cached_methods              = "${var.cached_methods}"
+    allowed_methods             = "${var.allowed_methods}"
     trusted_signers             = "${var.trusted_signers}"
     smooth_streaming            = "${var.smooth_streaming}"
     target_origin_id            = "${var.target_origin_id}"

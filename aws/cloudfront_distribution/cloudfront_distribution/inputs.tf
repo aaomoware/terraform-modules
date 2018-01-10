@@ -25,19 +25,19 @@ variable compress                       { default = "" }
 variable default_ttl                    { default = "" }
 variable path_pattern                   { default = "" }
 variable cached_methods                 { default = [] type = "list" }
-variable trusted_signers                { default = "" }
-variable allowed_methods                { default = "" }
+variable trusted_signers                { default = [] type = "list" }
+variable allowed_methods                { default = [] type = "list" }
 variable forwarded_values               { default = "" }
 variable smooth_streaming               { default = "" }
 variable target_origin_id               { default = "" }
 variable viewer_protocol_policy         { default = "" }
-variable lambda_function_association    { default = "" }
+variable lambda_function_association    { default = [] type = "list" }
 
 #--Forwarded Values Arguments
-variable headers                        { default = "" }
+variable headers                        { default = [] type = "" }
 variable cookies                        { default = "" }
 variable query_string                   { default = false }
-variable query_string_cache_keys        { default = "" }
+variable query_string_cache_keys        { default = [] type = "list" }
 
 #---Lambda Function Association
 variable event_type                     { default = "" }
@@ -45,7 +45,7 @@ variable lambda_arn                     { default = "" }
 
 #---Cookies Arguments
 variable forward                        { default = "" }
-variable whitelisted_names              { default = "" }
+variable whitelisted_names              { default = [] type = "list" }
 
 #--- Custom Error Response Arguments
 variable error_code                     { default = "" }
@@ -62,9 +62,9 @@ variable include_cookies                { default = false }
 variable origin_id                      { default = "" }
 variable domain_name                    { default = "" }
 variable origin_path                    { default = "" }
-variable custom_header                  { default = "" }
+variable custom_header                  { default = [] type = "list" }
 variable s3_origin_config               { default = "" }
-variable custom_origin_config           { default = "" }
+variable custom_origin_config           { default = [] type = "list" }
 
 #--- Custom Origin Config Arguments
 variable http_port                      { default = "" }
