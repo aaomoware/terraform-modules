@@ -1,3 +1,5 @@
+variable env                            { default = "" }
+
 #---General
 variable origin                         { default = "" }
 variable comment                        { default = "" }
