@@ -4,7 +4,7 @@ variable env                            { default = "" }
 variable origin                         { default = "" }
 variable comment                        { default = "" }
 variable enabled                        { default = true }
-variable aliases                        { default = "" }
+variable aliases                        { default = [] type = "list" }
 variable web_acl_id                     { default = "" }
 variable price_class                    { default = "" }
 variable http_version                   { default = "" }
@@ -24,7 +24,7 @@ variable min_ttl                        { default = "" }
 variable compress                       { default = "" }
 variable default_ttl                    { default = "" }
 variable path_pattern                   { default = "" }
-variable cached_methods                 { default = "" }
+variable cached_methods                 { default = [] type = "list" }
 variable trusted_signers                { default = "" }
 variable allowed_methods                { default = "" }
 variable forwarded_values               { default = "" }
@@ -78,7 +78,7 @@ variable origin_keepalive_timeout       { default = "" }
 variable origin_access_identity         { default = "" }
 
 #--- Restrictions Arguments
-variable locations                      { default = "" }
+variable locations                      { default = [] type = "list" }
 variable restriction_type               { default = "" }
 
 #--- Viewer Certificate Arguments
