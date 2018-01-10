@@ -22,6 +22,7 @@ variable min_ttl                        { default = "" }
 variable compress                       { default = "" }
 variable default_ttl                    { default = "" }
 variable path_pattern                   { default = "" }
+variable cached_methods                 { default = "" }
 variable trusted_signers                { default = "" }
 variable allowed_methods                { default = "" }
 variable forwarded_values               { default = "" }

@@ -42,6 +42,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     compress                    = "${var.compress}"
     default_ttl                 = "${var.default_ttl}"
     path_pattern                = "${var.path_pattern}"
+    cached_methods              = "${var.cached_methods}"
     trusted_signers             = "${var.trusted_signers}"
     smooth_streaming            = "${var.smooth_streaming}"
     target_origin_id            = "${var.target_origin_id}"
