@@ -1,3 +1,2 @@
 **/.terraform
 **/terraform.tfstate*
-tests-lab/cloudfront_distribution
