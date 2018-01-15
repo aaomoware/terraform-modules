@@ -1,0 +1,9 @@
+variable hard_expiry                     { default = "" }
+variable require_numbers                 { default = "" }
+variable require_symbols                 { default = "" }
+variable max_password_age                { default = "" }
+variable minimum_password_length         { default = "" }
+variable password_reuse_prevention       { default = "" }
+variable require_lowercase_characters    { default = "" }
+variable require_uppercase_characters    { default = "" }
+variable allow_users_to_change_password  { default = "" }
