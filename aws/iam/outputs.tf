@@ -48,29 +48,3 @@ output "iam_user_group_membership_group_users" {
 output "iam_user_group_membership_group_group" {
   value = "${aws_iam_group_membership.user_group_membership.*.group}"
 }
-
-
-#- Role Outputs
-output "iam_role_name" {
-  value = "${aws_iam_role.iam_role.*.name}"
-}
-
-output "iam_role_arn" {
-  value = "${aws_iam_role.iam_role.*.arn}"
-}
-
-output "iam_role_unique_id" {
-  value = "${aws_iam_role.iam_role.*.unique_id}"
-}
-
-output "iam_role_policy_id" {
-  value = "${aws_iam_role_policy.iam_role_policy.*.id}"
-}
-
-output "iam_role_policy_name" {
-  value = "${aws_iam_role_policy.iam_role_policy.*.name}"
-}
-
-output "iam_role_policy_policy" {
-  value = "${aws_iam_role_policy.iam_role_policy.*.policy}"
-}
