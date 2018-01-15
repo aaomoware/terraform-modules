@@ -74,13 +74,3 @@ output "iam_role_policy_name" {
 output "iam_role_policy_policy" {
   value = "${aws_iam_role_policy.iam_role_policy.*.policy}"
 }
-
-
-#- Group
-output "iam_group_name" {
-  value = "${aws_iam_group.iam_group.*.name}"
-}
-
-output "iam_group_policy_name" {
-  value = "${aws_iam_group_policy.iam_group_policy.*.name}"
-}
