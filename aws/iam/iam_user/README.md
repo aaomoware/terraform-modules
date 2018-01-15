@@ -1,4 +1,4 @@
-#### IAM Role
+#### IAM User
 
 
 ###### Variables
