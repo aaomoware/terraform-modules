@@ -10,7 +10,7 @@ resource "aws_route53_record" "weighted" {
     weight = "${var.weight}"
   }
 
-  records         = ["${split(",",var.records)}"]
+  records         = ["${var.records}"]
   set_identifier  = "${var.set_identifier}"
   health_check_id = "${var.health_check_id}"
 }

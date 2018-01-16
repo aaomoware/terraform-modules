@@ -1,7 +1,7 @@
 variable name                          { default = "" }
 variable type                          { default = "" }
 variable zone_id                       { default = "" }
-variable records                       { default = "" }
+variable records                       { default = [] type = "list" }
 
 variable alias_name                    { default = "" }
 variable alias_zone_id                 { default = "" }

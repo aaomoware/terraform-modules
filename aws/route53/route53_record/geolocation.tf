@@ -11,7 +11,7 @@ resource "aws_route53_record" "geo_country" {
   }
 
   set_identifier = "${var.set_identifier}"
-  records        = ["${split(",",var.records)}"]
+  records        = ["${var.records}"]
 }
 
 
@@ -28,5 +28,5 @@ resource "aws_route53_record" "geo_continent" {
   }
 
   set_identifier = "${var.set_identifier}"
-  records        = ["${split(",",var.records)}"]
+  records        = ["${var.records}"]
 }

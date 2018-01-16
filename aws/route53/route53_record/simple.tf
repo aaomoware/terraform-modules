@@ -5,5 +5,5 @@ resource "aws_route53_record" "simple" {
   name    = "${var.name}"
   type    = "${var.type}"
   ttl     = "${var.ttl}"
-  records = ["${split(",",var.records)}"]
+  records = ["${var.records}"]
 }

@@ -11,5 +11,5 @@ resource "aws_route53_record" "lentacy" {
   }
 
   set_identifier = "${var.set_identifier}"
-  records        = ["${split(",",var.records)}"]
+  records        = ["${var.records}"]
 }
