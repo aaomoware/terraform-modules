@@ -9,11 +9,8 @@ variable active { default = "" }
 
 ##### Outputs
 ```
-resource "aws_sns_topic" "st" {
-  name = "${var.name}"
-  policy = "${var.policy}"
-  display_name = "${var.display_name}"
-  delivery_policy = "${var.delivery_policy}"
+output "ic_arn" {
+  value = "${aws_iot_certificate.ic.arn}"
 }
 ```
 

@@ -9,9 +9,8 @@ variable policy { default = "" }
 
 ##### Outputs
 ```
-resource "aws_iot_policy" "ip" {
-  name   = "${var.name}"
-  policy = "${var.policy}"
+output "ip_arn" {
+  value = "${aws_iot_policy.ip.arn}"
 }
 ```
 
