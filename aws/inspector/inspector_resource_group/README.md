@@ -9,11 +9,8 @@ variable name { default = "" }
 
 ##### Outputs
 ```
-resource "aws_inspector_resource_group" "irg" {
-  tags {
-    Env  = "${var.env}"
-    Name = "${var.name}"
-  }
+output "irg_arn" {
+  value = "${aws_inspector_resource_group.irg.arn}"
 }
 ```
 

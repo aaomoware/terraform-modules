@@ -10,19 +10,11 @@ variable target_key_id { default = "" }
 
 ##### Outputs
 ```
-resource "aws_kms_alias" "ka" {
-  name          = "${var.name}"
-  target_key_id = "${var.target_key_id}"
+output "ka_arn" {
+  value = "${aws_kms_alias.ka.arn}"
 }
-
-resource "aws_kms_alias" "ka_prefix" {
-  count          = "${var.name_prefix ? 1 : 0}"
-  name_prefix    = "${var.name}"
-  target_key_id  = "${var.target_key_id}"
-
-  lifecycle {
-    create_before_destroy = true
-  }
+output "ka_prefix_arn" {
+  value = "${aws_kms_alias.ka_prefix.arn}"
 }
 ```
 

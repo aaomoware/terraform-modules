@@ -15,19 +15,11 @@ variable deletion_window_in_days    { default = "" }
 
 ##### Outputs
 ```
-resource "aws_kms_key" "kk" {
-  env                     = "${var.env}"
-  policy                  = "${var.policy}"
-  key_usage               = "${var.key_usage}"
-  is_enabled              = "${var.is_enabled}"
-  description             = "${var.description}"
-  deletion_window_in_days = "${var.deletion_window_in_days}"
-
-  tags {
-    Env = "${var.env}"
-    Name = "${var.name}"
-    description = "${var.description}"
-  }
+output "kk_arn" {
+  value = "${aws_kms_key.kk.arn}"
+}
+output "kk_key_id" {
+  value = "${aws_kms_key.kk.key_id}"
 }
 ```
 

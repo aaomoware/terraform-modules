@@ -10,10 +10,14 @@ variable dest_range { default = "" }
 
 ##### Outputs
 ```
-resource "aws_service_discovery_private_dns_namespace" "sdpdn" {
-  vpc = "${var.vpc}"
-  name = "${var.name}"
-  description = "${var.description}"
+output "sdpdn_id" {
+  value = "${aws_service_discovery_private_dns_namespace.sdpdn.id}"
+}
+output "sdpdn_arn" {
+  value = "${aws_service_discovery_private_dns_namespace.sdpdn.arn}"
+}
+output "sdpdn_hosted_zone" {
+  value = "${aws_service_discovery_private_dns_namespace.sdpdn.hosted_zone}"
 }
 ```
 

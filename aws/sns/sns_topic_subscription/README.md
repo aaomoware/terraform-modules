@@ -13,13 +13,14 @@ variable confirmation_timeout_in_minutes  { default = "" }
 
 ##### Outputs
 ```
-resource "aws_sns_topic_subscription" "sts" {
-  protocol                        = "${var.protocol}"
-  endpoint                        = "${var.endpoint}"
-  topic_arn                       = "${var.topic_arn}"
-  raw_message_delivery            = "${var.raw_message_delivery}"
-  endpoint_auto_confirms          = "${var.endpoint_auto_confirms}"
-  confirmation_timeout_in_minutes = "${var.confirmation_timeout_in_minutes}"
+output "sts_id" {
+  value = "${aws_sns_topic_subscription.sts.id}"
+}
+output "sts_arn" {
+  value = "${aws_sns_topic_subscription.sts.arn}"
+}
+output "sts_topic_arn" {
+  value = "${aws_sns_topic_subscription.sts.topic_arn}"
 }
 ```
 

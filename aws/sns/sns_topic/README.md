@@ -11,11 +11,11 @@ variable delivery_policy    { default = "" }
 
 ##### Outputs
 ```
-resource "aws_sns_topic" "st" {
-  name = "${var.name}"
-  policy = "${var.policy}"
-  display_name = "${var.display_name}"
-  delivery_policy = "${var.delivery_policy}"
+output "st_id" {
+  value = "${aws_sns_topic.st.id}"
+}
+output "st_arn" {
+  value = "${aws_sns_topic.st.arn}"
 }
 ```
 

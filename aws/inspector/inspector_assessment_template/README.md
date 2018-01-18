@@ -11,12 +11,8 @@ variable rules_package_arns   { default = "" }
 
 ##### Outputs
 ```
-resource "aws_inspector_assessment_template" "iat" {
-  name       = "${var.name}"
-  target_arn = "${var.target_arn}"
-  duration   = "${var.duration}"
-
-  rules_package_arns = ["${var.rules_package_arns}"]
+output "iat_arn" {
+  value = "${aws_inspector_assessment_template.iat.arn}"
 }
 ```
 
