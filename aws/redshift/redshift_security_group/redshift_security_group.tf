@@ -8,11 +8,3 @@ resource "aws_redshift_security_group" "rsg" {
     security_group_owner_id = "${var.security_group_owner_id}"
   }
 }
-
-
-variable name                     { default = "" }
-variable description              { default = "" }
-
-variable cidr                     { default = "" }
-variable security_group_name      { default = "" }
-variable security_group_owner_id  { default = "" }
