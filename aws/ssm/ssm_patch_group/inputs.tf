@@ -1,5 +1,2 @@
-variable name       { default = "" }
-variable type       { default = "" }
-variable value      { default = "" }
-variable key_id     { default = "" }
-variable overwrite  { default = "" }
+variable baseline_id { default = "" }
+variable patch_group { default = "" }
