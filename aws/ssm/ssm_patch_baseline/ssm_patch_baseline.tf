@@ -1,6 +1,3 @@
-#------------------------------------------------------------
-#- this resource is complex to formulate a generic use case -
-#------------------------------------------------------------
 resource "aws_ssm_patch_baseline" "ssmpb" {
   name             = "${var.name}"
   description      = "${var.description}"

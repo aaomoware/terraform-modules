@@ -1,5 +1,9 @@
 ####  SSM Patch Baseline
 
+#------------------------------------------------------------
+#- this resource is complex to formulate a generic use case -
+#------------------------------------------------------------
+
 
 ###### Variables
 ```
