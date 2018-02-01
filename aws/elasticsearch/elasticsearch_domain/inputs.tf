@@ -14,7 +14,7 @@ variable access_policies               { default = "" }
 variable elasticsearch_version         { default = "" }
 
 variable instance_type                 { default = "" }
-variable instance_count                { default = "" }
+variable instance_count                { default = 0 }
 variable dedicated_master_type         { default = "" }
 variable dedicated_master_count        { default = "" }
 variable zone_awareness_enabled        { default = "" }
