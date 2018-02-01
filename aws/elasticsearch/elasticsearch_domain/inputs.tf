@@ -20,7 +20,7 @@ variable dedicated_master_count        { default = "" }
 variable zone_awareness_enabled        { default = "" }
 variable dedicated_master_enabled      { default = "" }
 
-variable log_type                      { default = "" }
+variable log_type                      { default = "INDEX_SLOW_LOGS" }
 variable lpo_enabled                   { default = false }
 variable cloudwatch_log_group_arn      { default = "" }
 variable automated_snapshot_start_hour { default = "" }
