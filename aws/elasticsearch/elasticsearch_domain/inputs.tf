@@ -1,4 +1,4 @@
-variable iops                          { default = "" }
+variable iops                          { default = 0 }
 variable volume_type                   { default = "" }
 variable volume_size                   { default = "" }
 variable ebs_enabled                   { default = true }
