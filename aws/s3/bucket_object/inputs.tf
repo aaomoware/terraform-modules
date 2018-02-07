@@ -1,0 +1,15 @@
+variable acl                    { default = "" }
+variable key                    { default = "" }
+variable etag                   { default = "" }
+variable bucket                 { default = "" }
+variable source                 { default = "" }
+variable content                { default = "" }
+variable kms_key_id             { default = "" }
+variable content_type           { default = "" }
+variable cache_control          { default = "" }
+variable storage_class          { default = "" }
+variable content_encoding       { default = "" }
+variable content_language       { default = "" }
+variable website_redirect       { default = "" }
+variable content_disposition    { default = "" }
+variable server_side_encryption { default = "" }
