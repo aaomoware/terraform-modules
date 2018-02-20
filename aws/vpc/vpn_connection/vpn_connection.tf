@@ -5,6 +5,7 @@ resource "aws_vpn_connection" "vpn_conn" {
   customer_gateway_id = "${var.customer_gateway_id}"
 
   tags {
-    Env = "${var.env}"
+    Env  = "${var.env}"
+    Name = "${var.name}"
   }
 }
