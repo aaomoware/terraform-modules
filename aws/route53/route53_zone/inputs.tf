@@ -1,4 +1,4 @@
-variable name               { default = [] type = "list" }
+variable name               { default = "" }
 variable vpc_id             { default = "" }
 variable comment            { default = "" }
 variable vpc_region         { default = "" }
