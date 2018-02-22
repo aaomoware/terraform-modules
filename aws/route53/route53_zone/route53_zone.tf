@@ -1,4 +1,4 @@
-resource "aws_route53_zone" "zones" {
+resource "aws_route53_zone" "zones_vpc" {
   count             = "${var.vpc ? 1 : 0}"
 
   name              = "${var.name}"
@@ -8,7 +8,7 @@ resource "aws_route53_zone" "zones" {
   force_destroy     = "${var.force_destroy}"
 }
 
-resource "aws_route53_zone" "zones" {
+resource "aws_route53_zone" "zones_set_id" {
   count             = "${var.set_id ? 1 : 0}"
 
   name              = "${var.name}"
