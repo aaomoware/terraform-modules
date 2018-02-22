@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "zones" {
-  name              = "${var.names}"
+  name              = "${var.name}"
   vpc_id            = "${var.vpc_id}"
   comment           = "${var.comment}"
   vpc_region        = "${var.vpc_region}"
