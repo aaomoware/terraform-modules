@@ -1,16 +1,16 @@
 resource "aws_mq_broker" "mb" {
-  broker_name = "${var.broker_name}"
+
+  subnet_ids         = ["${var.subnet_ids}"]
+  engine_type        = "${var.engine_type}"
+  broker_name        = "${var.broker_name}"
+  engine_version     = "${var.engine_version}"
+  security_groups    = ["${var.security_groups}"]
+  host_instance_type = "${var.host_instance_type}"
 
   configuration {
     id       = "${var.id}"
     revision = "${var.revision}"
   }
-
-  subnet_ids         = ["${var.subnet_ids}"]
-  engine_type        = "${var.engine_type}"
-  engine_version     = "${var.engine_version}"
-  security_groups    = ["${var.security_groups}"]
-  host_instance_type = "${var.host_instance_type}"
 
   user {
     groups         = ["${var.groups}"]
