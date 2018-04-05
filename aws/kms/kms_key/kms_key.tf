@@ -1,4 +1,5 @@
 resource "aws_kms_key" "kk" {
+  
   env                     = "${var.env}"
   policy                  = "${var.policy}"
   key_usage               = "${var.key_usage}"
