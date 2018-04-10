@@ -3,11 +3,11 @@
 
 ###### Variables
 ```
-variable name           { default = "" }
-variable user           { default = "" }
-variable prefix         { default = false }
-variable policy         { default = "" }
-variable name_prefix    { default = "" }
+variable prefix                      { default = false }
+variable iam_user_policy_name        { default = "" }
+variable iam_user_policy_user        { default = "" }
+variable iam_user_policy_policy      { default = "" }
+variable iam_user_policy_name_prefix { default = "" }
 ```
 
 ##### Outputs
