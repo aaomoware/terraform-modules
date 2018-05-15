@@ -1,5 +1,8 @@
 variable region                           {}
 
+variable basic_vpc_tags                   { default = {} type = "map" }
+variable dns_support_vpc_tags             { default = {} type = "map" }
+
 variable basic_vpc                        {}
 variable dns_support_vpc                  {}
 
