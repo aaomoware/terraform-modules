@@ -1,4 +1,5 @@
 variable env                              { default = "mars" }
+variable tags                             { default = {} type = "maps" }
 variable cidr_block                       {}
 variable instance_tenancy                 { default = "default" }
 variable assign_generated_ipv6_cidr_block { default = false }

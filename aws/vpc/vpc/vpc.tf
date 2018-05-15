@@ -6,10 +6,7 @@ resource "aws_vpc" "basic_vpc" {
   instance_tenancy = "${var.instance_tenancy}"
   assign_generated_ipv6_cidr_block = "${var.assign_generated_ipv6_cidr_block}"
 
-  tags {
-    Environment = "${var.env}"
-    Name = "basic-vpc-${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -24,10 +21,7 @@ resource "aws_vpc" "dns_support_vpc" {
   instance_tenancy = "${var.instance_tenancy}"
   assign_generated_ipv6_cidr_block = "${var.assign_generated_ipv6_cidr_block}"
 
-  tags {
-    Environment = "${var.env}"
-    Name = "dns-support-vpc-${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -42,8 +36,5 @@ resource "aws_vpc" "classiclink_vpc" {
   instance_tenancy = "${var.instance_tenancy}"
   assign_generated_ipv6_cidr_block = "${var.assign_generated_ipv6_cidr_block}"
 
-  tags {
-    Environment = "${var.env}"
-    Name = "classiclink-vpc-${var.env}"
-  }
+  tags = "${var.tags}"
 }
