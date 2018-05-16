@@ -1,3 +1,4 @@
+variable tags                          { default = {} type = "map" }
 variable name                          { default = "" }
 variable type                          { default = "" }
 variable zone_id                       { default = "" }

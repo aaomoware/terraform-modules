@@ -3,6 +3,7 @@
 
 ###### Variables
 ```
+variable tags                          { default = "" }
 variable name                          { default = "" }
 variable type                          { default = "" }
 variable zone_id                       { default = "" }
