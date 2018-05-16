@@ -2,14 +2,16 @@
 
 
 ##### Tags
-Define tags using Local Value Configuration
+Define tags using map
 ```
-locals {
-  tags = {
-    Department   = "Kitchen"
-    Environment  = "Microwave"
-  }
+basic_vpc_tags = {
+  Environment = "test"
+  Resource = "basic_vpc"
+  Name = "basic_vpc"
+}
+dns_support_vpc_tags = {
+  Environment = "test"
+  Resource = "dns_support_vpc"
+  Name = "dns_support_vpc"
 }
 ```
-
-See [here](https://www.terraform.io/docs/configuration/locals.html) for more information.
