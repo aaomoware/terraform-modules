@@ -1,3 +1,5 @@
+variable tags                 { default = {} type = "map" }
+
 variable env                  { default = "" }
 variable name                 { default = "" }
 variable enable_classiclink   { default = false }

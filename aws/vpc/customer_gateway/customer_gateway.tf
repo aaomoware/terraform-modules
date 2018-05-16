@@ -3,8 +3,5 @@ resource "aws_customer_gateway" "cust_gtw" {
   bgp_asn    = "${var.bgp_asn}"
   ip_address = "${var.ip_address}"
 
-  tags {
-    Env  = "${var.env}"
-    Name = "${var.name}"
-  }
+  tags = "${var.tags}"
 }
