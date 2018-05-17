@@ -12,9 +12,7 @@ resource "aws_vpc_peering_connection" "vpc_peering_conn" {
     allow_remote_vpc_dns_resolution = "${var.accepter_requester['requester']}"
   }
 
-  tags {
-    Env = "${var.env}"
-  }
+  tags = "${var.tags}"
 
   lifecycle {
     create_before_destroy = true

@@ -5,9 +5,7 @@ resource "aws_vpc_dhcp_options" "dhcp_options" {
   netbios_name_servers = ["${var.netbios_name_servers}"]
   netbios_node_type    = "${var.netbios_node_type}"
 
-  tags {
-    Name = "${var.name}"
-  }
+  tags = "${var.tags}"
 
   lifecycle {
     create_before_destroy = true
