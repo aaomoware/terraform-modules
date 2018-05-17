@@ -1,4 +1,4 @@
-resource "aws_instace" "basic" {
+resource "aws_instance" "basic" {
   count = "${var.basic ? 1: 0}"
 
   ami                                  = "${var.ami}"
