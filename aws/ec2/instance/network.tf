@@ -11,7 +11,6 @@ resource "aws_instance" "network" {
   volume_tags                          = "${var.volume_tags}"
   instance_type                        = "${var.instance_type}"
   ebs_optimized                        = "${var.ebs_optimized}"
-  ipv6_addresses                       = "${var.ipv6_addresses}"
   security_groups                      = ["${var.security_groups}"]
   placement_group                      = "${var.placement_group}"
   source_dest_check                    = "${var.source_dest_check}"

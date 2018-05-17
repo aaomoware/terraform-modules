@@ -1,7 +1,10 @@
-implement support for
+<!-- implement support for -->
 * ipv6_address_count
 * user_data_base64
-* ```  root_block_device {
+* ipv6_addresses
+
+<!-- and -->
+```  root_block_device {
     iops                  = "${var.root_iops}"
     volume_type           = "${var.root_volume_type}"
     volume_size           = "${var.root_volume_size}"
@@ -17,4 +20,3 @@ implement support for
     volume_size           = "${var.ebs_volume_size}"
     delete_on_termination = "${var.ebs_delete_on_termination}"
   }```
-  
