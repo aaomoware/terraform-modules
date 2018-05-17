@@ -1,4 +1,5 @@
 variable fqdn                            { default = "" }
+variable tags                            { default = {} type = "" }
 variable port                            { default = "" }
 variable type                            { default = "" }
 variable name                            { default = "" }

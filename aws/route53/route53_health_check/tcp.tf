@@ -10,9 +10,7 @@ resource "aws_route53_health_check" "tcp_ip_address" {
   failure_threshold = "${var.failure_threshold}"
   invert_healthcheck = "${var.invert_healthcheck}"
 
-  tags = {
-    Name = "${var.name}"
-  }
+  tags = "${var.tags}"
 
   lifecycle {
     create_before_destroy = true
@@ -31,9 +29,7 @@ resource "aws_route53_health_check" "tcp_domain_name" {
   failure_threshold = "${var.failure_threshold}"
   invert_healthcheck = "${var.invert_healthcheck}"
 
-  tags = {
-    Name = "${var.name}"
-  }
+  tags = "${var.tags}"
 
   lifecycle {
     create_before_destroy = true

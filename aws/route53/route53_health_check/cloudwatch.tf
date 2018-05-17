@@ -7,9 +7,7 @@ resource "aws_route53_health_check" "cloudwatch_metric" {
   cloudwatch_alarm_region         = "${var.cloudwatch_alarm_region}"
   insufficient_data_health_status = "${var.insufficient_data_health_status}"
 
-  tags {
-    Name = "${var.name}"
-  }
+  tags = "${var.tags}"
 
   lifecycle {
     create_before_destroy = true

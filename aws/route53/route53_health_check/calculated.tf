@@ -6,9 +6,7 @@ resource "aws_route53_health_check" "calculated" {
   child_healthchecks     = ["${var.child_healthchecks}"]
   child_health_threshold = "${var.child_health_threshold}"
 
-  tags = {
-    Name = "${var.name}"
-  }
+  tags = "${var.tags}"
 
   lifecycle {
     create_before_destroy = true
