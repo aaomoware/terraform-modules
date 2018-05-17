@@ -1,13 +1,13 @@
 output "name_sg_id" {
-  value = "${aws_security_group.name.id}"
+  value = "${element(concat(aws_security_group.name.*.id, list("")), 0)}"
 }
 output "name_prefix_sg_id" {
-  value = "${aws_security_group.name_prefix.id}"
+  value = "${element(concat(aws_security_group.name_prefix.*.id, list("")), 0)}"
 }
 
 output "name_skeleton_id" {
-  value = "${aws_security_group.name_skeleton_id.id}"
+  value = "${element(concat(aws_security_group.name_skeleton_id.*.id, list("")), 0)}"
 }
 output "name_prefix_skeleton_id" {
-  value = "${aws_security_group.name_prefix_skeleton_id.id}"
+  value = "${element(concat(aws_security_group.name_prefix_skeleton_id.*.id, list("")), 0)}"
 }
