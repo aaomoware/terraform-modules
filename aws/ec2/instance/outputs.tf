@@ -44,9 +44,9 @@ output "basic_instance_private_ip" {
 output "basic_instance_subnet_id" {
   value = "${element(concat(aws_instance.basic.*.subnet_id, list("")), 0)}"
 }
-output "basic_instance_credit_specification" {
-  value = "${aws_instance.basic.*.credit_specification}"
-}
+# output "basic_instance_credit_specification" {
+#   value = "${aws_instance.basic.*.credit_specification}"
+# }
 
 
 # network
