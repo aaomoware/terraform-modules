@@ -45,7 +45,7 @@ output "basic_instance_subnet_id" {
   value = "${element(concat(aws_instance.basic.*.subnet_id, list("")), 0)}"
 }
 output "basic_instance_credit_specification" {
-  value = "${element(concat(aws_instance.basic.*.credit_specification, list("")), 0)}"
+  value = "${aws_instance.basic.*.credit_specification}"
 }
 
 
@@ -96,5 +96,5 @@ output "network_instance_subnet_id" {
   value = "${element(concat(aws_instance.network.*.subnet_id, list("")), 0)}"
 }
 output "network_instance_credit_specification" {
-  value = "${element(concat(aws_instance.network.*.credit_specification, list("")), 0)}"
+  value = "${aws_instance.network.*.credit_specification}"
 }
