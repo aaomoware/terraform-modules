@@ -4,7 +4,8 @@
 * ipv6_addresses
 
 <!-- and -->
-```  root_block_device {
+```  
+root_block_device {
     iops                  = "${var.root_iops}"
     volume_type           = "${var.root_volume_type}"
     volume_size           = "${var.root_volume_size}"
@@ -19,4 +20,13 @@
     volume_type           = "${var.ebs_volume_type}"
     volume_size           = "${var.ebs_volume_size}"
     delete_on_termination = "${var.ebs_delete_on_termination}"
-  }```
+  }
+```
+
+```
+ephemeral_block_device {
+  no_device             = "${var.no_device}"
+  device_name           = "${var.ephemeral_device_name}"
+  virtual_name          = "${var.virtual_name}"
+}
+```

@@ -28,12 +28,6 @@ resource "aws_instance" "basic" {
     delete = "${var.delete}"
   }
 
-  ephemeral_block_device {
-    no_device             = "${var.no_device}"
-    device_name           = "${var.ephemeral_device_name}"
-    virtual_name          = "${var.virtual_name}"
-  }
-
   credit_specification {
    cpu_credits = "${var.cpu_credits}"
   }
