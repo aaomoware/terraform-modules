@@ -1,6 +1,6 @@
 #---name, fixed name
 resource "aws_security_group" "name" {
-  count = "${var.names ? 1 : 0}"
+  count = "${var.named ? 1 : 0}"
 
   name        = "${var.name}"
   vpc_id      = "${var.vpc_id}"
