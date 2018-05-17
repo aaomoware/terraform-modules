@@ -33,7 +33,7 @@ output "basic_instance_private_dns" {
   value = "${element(concat(aws_instance.basic.*.private_dns, list("")), 0)}"
 }
 output "basic_instance_private_ip" {
-  value = "${element(concat(aws_instance.basic.*.private_id, list("")), 0)}"
+  value = "${element(concat(aws_instance.basic.*.private_ip, list("")), 0)}"
 }
 output "basic_instance_security_groups" {
   value = "${element(concat(aws_instance.basic.*.security_groups, list("")), 0)}"
@@ -84,10 +84,10 @@ output "network_instance_private_dns" {
   value = "${element(concat(aws_instance.network.*.private_dns, list("")), 0)}"
 }
 output "network_instance_private_ip" {
-  value = "${element(concat(aws_instance.network.*.private_id, list("")), 0)}"
+  value = "${element(concat(aws_instance.network.*.private_ip, list("")), 0)}"
 }
 output "network_instance_security_groups" {
-  value = "${element(concat(aws_instance.network.*.security_groups, list("")), 0)}"
+  value = "${element(concat(aws_instance.network.*.security_group, list("")), 0)}"
 }
 output "network_instance_vpc_security_group_ids" {
   value = "${element(concat(aws_instance.network.*.vpc_security_group_ids, list("")), 0)}"
