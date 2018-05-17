@@ -18,7 +18,7 @@ output "basic_instance_public_dns" {
   value = "${element(concat(aws_instance.basic.*.public_dns, list("")), 0)}"
 }
 output "basic_instance_public_ip" {
-  value = "${element(concat(aws_instance.basic.*.public_id, list("")), 0)}"
+  value = "${element(concat(aws_instance.basic.*.public_ip, list("")), 0)}"
 }
 output "basic_instance_ipv6_addresses" {
   value = "${aws_instance.basic.*.ipv6_addresses}"
@@ -69,7 +69,7 @@ output "network_instance_public_dns" {
   value = "${element(concat(aws_instance.network.*.public_dns, list("")), 0)}"
 }
 output "network_instance_public_ip" {
-  value = "${element(concat(aws_instance.network.*.public_id, list("")), 0)}"
+  value = "${element(concat(aws_instance.network.*.public_ip, list("")), 0)}"
 }
 output "network_instance_ipv6_addresses" {
   value = "${aws_instance.network.*.ipv6_addresses}"
