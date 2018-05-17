@@ -24,7 +24,7 @@ output "basic_instance_ipv6_addresses" {
   value = "${aws_instance.basic.*.ipv6_addresses}"
 }
 output "basic_instance_network_interface_id" {
-  value = "${element(concat(aws_instance.basic.*.network_id, list("")), 0)}"
+  value = "${element(concat(aws_instance.basic.*.network_interface_id, list("")), 0)}"
 }
 output "basic_instance_primary_network_interface_id" {
   value = "${element(concat(aws_instance.basic.*.network_interface_id, list("")), 0)}"
@@ -75,7 +75,7 @@ output "network_instance_ipv6_addresses" {
   value = "${aws_instance.network.*.ipv6_addresses}"
 }
 output "network_instance_network_interface_id" {
-  value = "${element(concat(aws_instance.network.*.network_id, list("")), 0)}"
+  value = "${element(concat(aws_instance.network.*.network_interface_id, list("")), 0)}"
 }
 output "network_instance_primary_network_interface_id" {
   value = "${element(concat(aws_instance.network.*.network_interface_id, list("")), 0)}"
