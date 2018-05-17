@@ -16,7 +16,7 @@ resource "aws_instance" "basic" {
   placement_group                      = "${var.placement_group}"
   user_data_base64                     = "${var.user_data_base64}"
   source_dest_check                    = "${var.source_dest_check}"
-  get_password_data                    = "${var.get+get_password_data}"
+  get_password_data                    = "${var.get_password_data}"
   availability_zone                    = "${var.availability_zone}"
   ipv6_address_count                   = "${var.ipv6_addrress_count}"
   iam_instance_profile                 = "${var.iam_instance_profile}"
