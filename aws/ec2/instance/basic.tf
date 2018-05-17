@@ -18,7 +18,7 @@ resource "aws_instace" "basic" {
   source_dest_check                    = "${var.source_dest_check}"
   get_password_data                    = "${var.get_password_data}"
   availability_zone                    = "${var.availability_zone}"
-  ipv6_address_count                   = "${var.ipv6_addrress_count}"
+  ipv6_address_count                   = "${var.ipv6_address_count}"
   iam_instance_profile                 = "${var.iam_instance_profile}"
   vpc_security_group_ids               = ["${var.vpc_security_group_ids}"]
   disable_api_termination              = "${var.disable_api_termination}"
@@ -27,7 +27,7 @@ resource "aws_instace" "basic" {
 
   timeouts {
     create = "${var.create}"
-    update = "${var.updare}"
+    update = "${var.update}"
     delete = "${var.delete}"
   }
 
@@ -41,7 +41,7 @@ resource "aws_instace" "basic" {
   ebs_block_device {
     iops                  = "${var.ebs_iops}"
     encrypted             = "${var.encrypted}"
-    device_name           = "${var.ebs_devce_name}"
+    device_name           = "${var.ebs_device_name}"
     snapshot_id           = "${var.snapshot_id}"
     volume_type           = "${var.ebs_volume_type}"
     volume_size           = "${var.ebs_volume_size}"
