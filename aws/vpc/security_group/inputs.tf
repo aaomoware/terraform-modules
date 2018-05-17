@@ -2,6 +2,7 @@ variable name                     { default = "" }
 variable vpc_id                   { default = "" }
 variable description              { default = "" }
 
+variable names                    { default = false }
 variable name_prefix              { default = false }
 variable egress_self              { default = false }
 variable ingress_self             { default = false }
