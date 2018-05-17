@@ -27,9 +27,9 @@ variable associate_public_ip_address          { default = "" }
 variable instance_initiated_shutdown_behavior { default = "" }
 
 # Timeout
-variable create                               { default = 10m }
-variable update                               { default = 10m }
-variable delete                               { default = 20m }
+variable create                               { default = "10m" }
+variable update                               { default = "10m" }
+variable delete                               { default = "20m" }
 
 # root_block_device
 variable root_iops                            { default = "" }
