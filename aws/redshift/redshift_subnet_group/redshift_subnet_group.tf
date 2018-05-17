@@ -3,8 +3,5 @@ resource "aws_redshift_subnet_group" "rsg" {
   subnet_ids  = ["${var.subnet_ids}"]
   description = "${var.description}"
 
-  tags {
-    Env = "${var.env}"
-    Name = "${var.name}"
-  }
+  tags = "${var.tags}"
 }

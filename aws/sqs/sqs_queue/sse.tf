@@ -10,13 +10,8 @@ resource "aws_sqs_queue" "sse_dlq" {
   receive_wait_time_seconds = "${var.receive_wait_time_seconds}"
   kms_data_key_reuse_period_seconds = "${var.kms_data_key_reuse_period_seconds}"
 
-  tags {
-    Name = "dlq-${var.sse_name}-${var.env}"
-    Description = "dead-letter-queue for sse queue"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
-
 
 
 #--sse, with dead letter queue
@@ -32,11 +27,7 @@ resource "aws_sqs_queue" "sse_with_dlq" {
   receive_wait_time_seconds = "${var.receive_wait_time_seconds}"
   kms_data_key_reuse_period_seconds = "${var.kms_data_key_reuse_period_seconds}"
 
-  tags {
-    Name = "${var.sse_name}-dlq-${var.env}"
-    Description = "sse queue with dead-letter-queue"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -52,9 +43,5 @@ resource "aws_sqs_queue" "sse_without_dlq" {
   receive_wait_time_seconds = "${var.receive_wait_time_seconds}"
   kms_data_key_reuse_period_seconds = "${var.kms_data_key_reuse_period_seconds}"
 
-  tags {
-    Name = "${var.sse_name}-${var.env}"
-    Description = "sse queue without dead-letter-queue"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }

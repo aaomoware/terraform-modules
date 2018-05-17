@@ -1,3 +1,4 @@
+variable tags                      { default = {} type = "list" }
 variable rc_id                     { default = "" }
 variable rc_role                   { default = "" }
 variable rc_prefix                 { default = "" }

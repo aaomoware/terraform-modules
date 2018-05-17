@@ -22,10 +22,7 @@ resource "aws_s3_bucket" "h" {
     mfa_delete  = "${var.mfa_delete}"
   }
 
-  tags {
-    Name        = "${var.bucket}"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -53,10 +50,7 @@ resource "aws_s3_bucket" "hp" {
     mfa_delete  = "${var.mfa_delete}"
   }
 
-  tags {
-    Name        = "${var.bucket}"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -91,10 +85,7 @@ resource "aws_s3_bucket" "hl" {
     target_prefix = "${var.target_prefix}"
   }
 
-  tags {
-    Name        = "${var.bucket}"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -127,8 +118,5 @@ resource "aws_s3_bucket" "hpl" {
     target_prefix = "${var.target_prefix}"
   }
 
-  tags {
-    Name        = "${var.bucket}"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }

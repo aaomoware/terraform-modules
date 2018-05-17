@@ -1,4 +1,5 @@
 variable env                        { default = "" }
+variable tags                       { default = {} type = "list" }
 variable name                       { default = "" }
 variable policy                     { default = "" }
 variable key_usage                  { default = "" }

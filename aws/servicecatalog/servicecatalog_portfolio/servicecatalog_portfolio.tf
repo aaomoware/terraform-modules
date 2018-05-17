@@ -3,8 +3,5 @@ resource "aws_servicecatalog_portfolio" "sp" {
   description   = "${var.description}"
   provider_name = "${var.provider_name}"
 
-  tags {
-    Env  = "${var.env}"
-    Name = "${var.name}"
-  }
+  tags = "${var.tags}"
 }

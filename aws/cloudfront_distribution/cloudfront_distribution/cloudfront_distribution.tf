@@ -94,9 +94,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
 
-  tags {
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 
   viewer_certificate {
     ssl_support_method             = "${var.ssl_support_method}"

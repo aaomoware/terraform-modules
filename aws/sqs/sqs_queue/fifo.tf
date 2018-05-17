@@ -10,11 +10,7 @@ resource "aws_sqs_queue" "fifo_dlq" {
   receive_wait_time_seconds = "${var.receive_wait_time_seconds}"
   content_based_deduplication = "${var.content_based_deduplication}"
 
-  tags {
-    Name = "fifo-dlq-${var.env}"
-    Description = "dead-letter-queue for fifo queue"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -31,11 +27,7 @@ resource "aws_sqs_queue" "fifo_with_dlq" {
   receive_wait_time_seconds = "${var.receive_wait_time_seconds}"
   content_based_deduplication = "${var.content_based_deduplication}"
 
-  tags {
-    Name = "${var.fifo_name}-dlq-${var.env}.fifo"
-    Description = "fifo queue with dead-letter-queue"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 
@@ -51,9 +43,5 @@ resource "aws_sqs_queue" "fifo_without_dlq" {
   receive_wait_time_seconds = "${var.receive_wait_time_seconds}"
   content_based_deduplication = "${var.content_based_deduplication}"
 
-  tags {
-    Name = "${var.fifo_name}-${var.env}.fifo"
-    Description = "fifo queue without dead-letter-queue"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }

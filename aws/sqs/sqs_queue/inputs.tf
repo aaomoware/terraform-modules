@@ -1,3 +1,5 @@
+variable tags                               { default = {} type = "list" }
+
 variable "sse"                              { default = false }
 variable "fifo"                             { default = false }
 variable "standard"                         { default = false }

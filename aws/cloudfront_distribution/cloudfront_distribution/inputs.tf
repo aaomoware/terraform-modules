@@ -1,4 +1,5 @@
 variable env                            { default = "" }
+variable tags                           { default = {} type = "map" }
 
 #---General
 variable origin                         { default = "" }

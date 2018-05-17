@@ -20,10 +20,7 @@ resource "aws_s3_bucket" "b" {
     target_prefix = "${var.target_prefix}"
   }
 
-  tags {
-    Name        = "${var.name}"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 #--- basic prefix
@@ -48,10 +45,7 @@ resource "aws_s3_bucket" "bp" {
     target_prefix = "${var.target_prefix}"
   }
 
-  tags {
-    Name        = "${var.bucket}"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 #---basic with logging
@@ -76,10 +70,7 @@ resource "aws_s3_bucket" "bl" {
     target_prefix = "${var.target_prefix}"
   }
 
-  tags {
-    Name        = "${var.name}"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }
 
 #--- basic prefix, with logging
@@ -104,8 +95,5 @@ resource "aws_s3_bucket" "bpl" {
     target_prefix = "${var.target_prefix}"
   }
 
-  tags {
-    Name        = "${var.bucket}"
-    Environment = "${var.env}"
-  }
+  tags = "${var.tags}"
 }

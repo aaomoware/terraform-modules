@@ -34,9 +34,7 @@ resource "aws_elasticsearch_domain" "ed" {
     cloudwatch_log_group_arn  = "${var.cloudwatch_log_group_arn}"
   }
 
-  tags {
-    Name = "${var.domain_name}"
-  }
+  tags = "${var.tags}"
 
   lifecycle {
     create_before_destroy = true
