@@ -1,4 +1,4 @@
-variable env                 { default = "" }
+variable tags                { default = {} type = "map" }
 variable vpc_id              { default = "" }
 variable auto_accept         { default = true }
 variable peer_vpc_id         { default = "" }
