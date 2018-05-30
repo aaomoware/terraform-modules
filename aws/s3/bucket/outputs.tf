@@ -11,12 +11,6 @@ output "b_region" {
 output "b_hosted_zone_id" {
   value = "${element(concat(aws_s3_bucket.b.*.hosted_zone_id, list("")), 0)}"
 }
-output "b_website_domain" {
-  value = "${element(concat(aws_s3_bucket.b.*.website_domain, list("")), 0)}"
-}
-output "b_website_endpoint" {
-  value = "${element(concat(aws_s3_bucket.b.*.website_endpoint, list("")), 0)}"
-}
 output "b_bucket_domain_name" {
   value = "${element(concat(aws_s3_bucket.b.*.bucket_domain_name, list("")), 0)}"
 }
@@ -32,12 +26,6 @@ output "bp_region" {
 }
 output "bp_hosted_zone_id" {
   value = "${element(concat(aws_s3_bucket.bp.*.hosted_zone_id, list("")), 0)}"
-}
-output "bp_website_domain" {
-  value = "${element(concat(aws_s3_bucket.bp.*.website_domain, list("")), 0)}"
-}
-output "bp_website_endpoint" {
-  value = "${element(concat(aws_s3_bucket.bp.*.website_endpoint, list("")), 0)}"
 }
 output "bp_bucket_domain_name" {
   value = "${element(concat(aws_s3_bucket.bp.*.bucket_domain_name, list("")), 0)}"
