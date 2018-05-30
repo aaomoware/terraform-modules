@@ -30,6 +30,7 @@ variable cors                      { default = false }
 variable basic                     { default = false }
 variable prefix                    { default = false }
 variable logging                   { default = false }
+variable encryption                { default = false }
 variable versioning                { default = false }
 variable replication               { default = false }
 
@@ -38,8 +39,8 @@ variable acl                       { default = "" }
 variable region                    { default = "" }
 variable policy                    { default = "" }
 variable bucket                    { default = "" }
-variable force_destroy             { default = "" }
 variable bucket_prefix             { default = "" }
+variable request_payer             { default = "" }
 variable force_destroy             { default = "" }
 variable acceleration_status       { default = "" }
 
