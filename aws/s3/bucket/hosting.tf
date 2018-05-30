@@ -58,7 +58,7 @@ resource "aws_s3_bucket" "hp" {
 
 #---hosting with logging
 resource "aws_s3_bucket" "hl" {
-  count               = "${var.wsh && var.logging !var.prefix ? 1 : 0}"
+  count               = "${var.wsh && var.logging ! var.prefix ? 1 : 0}"
 
   acl                 = "${var.acl}"
   region              = "${var.region}"
