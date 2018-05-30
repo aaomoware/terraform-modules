@@ -49,7 +49,7 @@ output "bl_id" {
 output "bl_arn" {
   value = "${element(concat(aws_s3_bucket.bl.*.arn, list("")), 0)}"
 }
-output "bp_region" {
+output "bl_region" {
   value = "${element(concat(aws_s3_bucket.bl.*.region, list("")), 0)}"
 }
 output "bl_hosted_zone_id" {
@@ -155,25 +155,25 @@ output "el_bucket_domain_name" {
 }
 #---encryption with prefix and logging
 output "epl_id" {
-  value = "${element(concat(aws_s3_bucket.elp.*.id, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.epl.*.id, list("")), 0)}"
 }
 output "epl_arn" {
-  value = "${element(concat(aws_s3_bucket.elp.*.arn, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.epl.*.arn, list("")), 0)}"
 }
 output "epl_region" {
-  value = "${element(concat(aws_s3_bucket.elp.*.region, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.epl.*.region, list("")), 0)}"
 }
 output "epl_hosted_zone_id" {
-  value = "${element(concat(aws_s3_bucket.elp.*.hosted_zone_id, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.epl.*.hosted_zone_id, list("")), 0)}"
 }
 output "epl_website_domain" {
-  value = "${element(concat(aws_s3_bucket.elp.*.website_domain, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.epl.*.website_domain, list("")), 0)}"
 }
 output "epl_website_endpoint" {
-  value = "${element(concat(aws_s3_bucket.elp.*.website_endpoint, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.epl.*.website_endpoint, list("")), 0)}"
 }
 output "epl_bucket_domain_name" {
-  value = "${element(concat(aws_s3_bucket.elp.*.bucket_domain_name, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.epl.*.bucket_domain_name, list("")), 0)}"
 }
 
 
@@ -354,94 +354,4 @@ output "rpl_website_endpoint" {
 }
 output "rpl_bucket_domain_name" {
   value = "${element(concat(aws_s3_bucket.rpl.*.bucket_domain_name, list("")), 0)}"
-}
-
-
-#---hosting
-output "h_id" {
-  value = "${element(concat(aws_s3_bucket.h.*.id, list("")), 0)}"
-}
-output "h_arn" {
-  value = "${element(concat(aws_s3_bucket.h.*.arn, list("")), 0)}"
-}
-output "h_region" {
-  value = "${element(concat(aws_s3_bucket.h.*.region, list("")), 0)}"
-}
-output "h_hosted_zone_id" {
-  value = "${element(concat(aws_s3_bucket.h.*.hosted_zone_id, list("")), 0)}"
-}
-output "h_website_domain" {
-  value = "${element(concat(aws_s3_bucket.h.*.website_domain, list("")), 0)}"
-}
-output "h_website_endpoint" {
-  value = "${element(concat(aws_s3_bucket.h.*.website_endpoint, list("")), 0)}"
-}
-output "h_bucket_domain_name" {
-  value = "${element(concat(aws_s3_bucket.h.*.bucket_domain_name, list("")), 0)}"
-}
-#---hosting with prefix
-output "hp_id" {
-  value = "${element(concat(aws_s3_bucket.hp.*.id, list("")), 0)}"
-}
-output "hp_arn" {
-  value = "${element(concat(aws_s3_bucket.hp.*.arn, list("")), 0)}"
-}
-output "hp_region" {
-  value = "${element(concat(aws_s3_bucket.hp.*.region, list("")), 0)}"
-}
-output "hp_website_domain" {
-  value = "${element(concat(aws_s3_bucket.hp.*.website_domain, list("")), 0)}"
-}
-output "hp_hosted_zone_id" {
-  value = "${element(concat(aws_s3_bucket.hp.*.hosted_zone_id, list("")), 0)}"
-}
-output "hp_website_endpoint" {
-  value = "${element(concat(aws_s3_bucket.hp.*.website_endpoint, list("")), 0)}"
-}
-output "hp_bucket_domain_name" {
-  value = "${element(concat(aws_s3_bucket.hp.*.bucket_domain_name, list("")), 0)}"
-}
-#---hosting logging
-output "hl_id" {
-  value = "${element(concat(aws_s3_bucket.hl.*.id, list("")), 0)}"
-}
-output "hl_arn" {
-  value = "${element(concat(aws_s3_bucket.hl.*.arn, list("")), 0)}"
-}
-output "hl_region" {
-  value = "${element(concat(aws_s3_bucket.hl.*.region, list("")), 0)}"
-}
-output "hl_hosted_zone_id" {
-  value = "${element(concat(aws_s3_bucket.hl.*.hosted_zone_id, list("")), 0)}"
-}
-output "hl_website_domain" {
-  value = "${element(concat(aws_s3_bucket.hl.*.website_domain, list("")), 0)}"
-}
-output "hl_website_endpoint" {
-  value = "${element(concat(aws_s3_bucket.hl.*.website_endpoint, list("")), 0)}"
-}
-output "hl_bucket_domain_name" {
-  value = "${element(concat(aws_s3_bucket.hl.*.bucket_domain_name, list("")), 0)}"
-}
-#---hosting, prefix with logging
-output "hpl_id" {
-  value = "${element(concat(aws_s3_bucket.hpl.*.id, list("")), 0)}"
-}
-output "hpl_arn" {
-  value = "${element(concat(aws_s3_bucket.hpl.*.arn, list("")), 0)}"
-}
-output "hpl_region" {
-  value = "${element(concat(aws_s3_bucket.hpl.*.region, list("")), 0)}"
-}
-output "hpl_website_domain" {
-  value = "${element(concat(aws_s3_bucket.hpl.*.website_domain, list("")), 0)}"
-}
-output "hpl_hosted_zone_id" {
-  value = "${element(concat(aws_s3_bucket.hpl.*.hosted_zone_id, list("")), 0)}"
-}
-output "hpl_website_endpoint" {
-  value = "${element(concat(aws_s3_bucket.hpl.*.website_endpoint, list("")), 0)}"
-}
-output "hpl_bucket_domain_name" {
-  value = "${element(concat(aws_s3_bucket.hpl.*.bucket_domain_name, list("")), 0)}"
 }
