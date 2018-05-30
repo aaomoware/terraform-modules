@@ -17,7 +17,7 @@ resource "aws_cloudtrail" "ct" {
 
 
 resource "aws_cloudtrail" "ct_es" {
-  count = "${var.es ? 1 : = }"
+  count = "${var.es ? 1 : 0 }"
 
   name                          = "${var.name}"
   tags                          = "${var.tags}"
