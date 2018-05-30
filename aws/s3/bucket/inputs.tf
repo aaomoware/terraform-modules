@@ -27,6 +27,7 @@ variable max_age_seconds           { default = "" }
 
 variable wsh                       { default = false }
 variable cors                      { default = false }
+variable basic                     { default = false }
 variable prefix                    { default = false }
 variable logging                   { default = false }
 variable versioning                { default = false }
