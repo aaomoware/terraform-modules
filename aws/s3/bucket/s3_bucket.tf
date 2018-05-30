@@ -10,16 +10,6 @@ resource "aws_s3_bucket" "b" {
   request_payer       = "${var.request_payer}"
   acceleration_status = "${var.acceleration_status}"
 
-  versioning {
-    enabled     = "${var.enabled}"
-    mfa_delete  = "${var.mfa_delete}"
-  }
-
-  logging {
-    target_bucket = "${var.target_bucket}"
-    target_prefix = "${var.target_prefix}"
-  }
-
   tags = "${var.tags}"
 }
 
@@ -34,16 +24,6 @@ resource "aws_s3_bucket" "bp" {
   force_destroy       = "${var.force_destroy}"
   request_payer       = "${var.request_payer}"
   acceleration_status = "${var.acceleration_status}"
-
-  versioning {
-    enabled     = "${var.enabled}"
-    mfa_delete  = "${var.mfa_delete}"
-  }
-
-  logging {
-    target_bucket = "${var.target_bucket}"
-    target_prefix = "${var.target_prefix}"
-  }
 
   tags = "${var.tags}"
 }
