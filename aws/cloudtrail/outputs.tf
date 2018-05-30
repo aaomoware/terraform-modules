@@ -9,11 +9,11 @@ output "ct_home_region" {
 }
 
 output "ct_es_id" {
-  value = "${aws_cloudtrail.ct_es.0.id}"
+  value = "${element(concat(aws_cloudtrail.ct_es.*.id, list("")), 0)}"
 }
 output "ct_es_arn" {
-  value = "${aws_cloudtrail.ct_es.0.id}"
+  value = "${element(concat(aws_cloudtrail.ct_es.*.arn, list("")), 0)}"
 }
 output "ct_es_home_region" {
-  value = "${aws_cloudtrail.ct_es.0.id}"
+  value = "${element(concat(aws_cloudtrail.ct_es.*.home_region, list("")), 0)}"
 }
