@@ -40,9 +40,9 @@ variable region                    { default = "" }
 variable policy                    { default = "" }
 variable bucket                    { default = "" }
 variable bucket_prefix             { default = "" }
-variable request_payer             { default = "" }
 variable force_destroy             { default = "" }
-variable acceleration_status       { default = "" }
+variable request_payer             { default = "BucketOwner" }
+variable acceleration_status       { default = "Suspended" }
 
 #--- website
 variable routing_rules             { default = "" }
