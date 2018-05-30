@@ -133,25 +133,25 @@ output "ep_bucket_domain_name" {
 }
 #---encryption with logging
 output "el_id" {
-  value "${element(concat(aws_s3_bucket.el.*.id, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.el.*.id, list("")), 0)}"
 }
 output "el_arn" {
-  value "${element(concat(aws_s3_bucket.el.*.arn, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.el.*.arn, list("")), 0)}"
 }
 output "el_region" {
-  value "${element(concat(aws_s3_bucket.el.*.region, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.el.*.region, list("")), 0)}"
 }
 output "el_website_domain" {
-  value "${element(concat(aws_s3_bucket.el.*.website_domain, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.el.*.website_domain, list("")), 0)}"
 }
 output "el_hosted_zone_id" {
-  value "${element(concat(aws_s3_bucket.el.*.hosted_zone_id, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.el.*.hosted_zone_id, list("")), 0)}"
 }
 output "el_website_endpoint" {
-  value "${element(concat(aws_s3_bucket.el.*.website_endpoint, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.el.*.website_endpoint, list("")), 0)}"
 }
 output "el_bucket_domain_name" {
-  value "${element(concat(aws_s3_bucket.el.*.bucket_domain_name, list("")), 0)}"
+  value = "${element(concat(aws_s3_bucket.el.*.bucket_domain_name, list("")), 0)}"
 }
 #---encryption with prefix and logging
 output "epl_id" {
