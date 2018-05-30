@@ -1,6 +1,6 @@
 #---hosting
 resource "aws_s3_bucket" "h" {
-  count               = "${var.wsh && !var.prefix ? 1 : 0}"
+  count               = "${var.wsh && var.prefix ? 1 : 0}"
 
   acl                 = "${var.acl}"
   region              = "${var.region}"
