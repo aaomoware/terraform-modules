@@ -2,10 +2,10 @@ output "ct_id" {
   value = "${aws_cloudtrail.ct.id}"
 }
 output "ct_arn" {
-  value = "${aws_cloudtrail.ct.id}"
+  value = "${aws_cloudtrail.ct.arn}"
 }
 output "ct_home_region" {
-  value = "${aws_cloudtrail.ct.id}"
+  value = "${aws_cloudtrail.ct.home_region}"
 }
 
 output "ct_es_id" {
