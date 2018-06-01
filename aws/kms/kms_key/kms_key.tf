@@ -8,5 +8,4 @@ resource "aws_kms_key" "kk" {
   deletion_window_in_days = "${var.deletion_window_in_days}"
 
   tags = "${var.tags}"
-  }
 }
