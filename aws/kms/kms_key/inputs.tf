@@ -1,4 +1,4 @@
-variable tags                       { default = {} type = "list" }
+variable tags                       { default = {} type = "map" }
 variable name                       { default = "" }
 variable policy                     { default = "" }
 variable key_usage                  { default = "ENCRYPT_DECRYPT" }
