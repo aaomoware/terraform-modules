@@ -23,15 +23,15 @@ variable simple                                     { default = false }
 variable local_secondary_index                      { default = false }
 variable global_secondary_index                     { default = false }
 
-variable local_secondary_index_name                 {}
-variable local_secondary_index_range_key            {}
-variable local_secondary_index_projection_type      {}
+variable local_secondary_index_name                 { default = "" }
+variable local_secondary_index_range_key            { default = "" }
+variable local_secondary_index_projection_type      { default = "" }
 variable local_secondary_index_non_key_attributes   { default = [] type = "list" }
 
-variable global_secondary_index_name                {}
-variable global_secondary_index_hash_key            {}
+variable global_secondary_index_name                { default = "" }
+variable global_secondary_index_hash_key            { default = "" }
 variable global_secondary_index_range_key           { default = "" }
-variable global_secondary_index_read_capacity       {}
-variable global_secondary_index_write_capacity      {}
-variable global_secondary_index_projection_type     {}
-variable global_secondary_index_non_key_attributes  { default = "" }
+variable global_secondary_index_read_capacity       { default = "" }
+variable global_secondary_index_write_capacity      { default = "" }
+variable global_secondary_index_projection_type     { default = "" }
+variable global_secondary_index_non_key_attributes  { default = [] type = "list" }
