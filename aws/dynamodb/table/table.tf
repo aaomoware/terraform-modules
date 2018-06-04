@@ -75,7 +75,7 @@ resource "aws_dynamodb_table" "dt_local_index" {
 
 #---global_secondary_index
 resource "aws_dynamodb_table" "dt_global_index" {
-  count            = "${var.local_secondary_index}"
+  count            = "${var.global_secondary_index}"
 
   name             = "${var.name}"
   hash_key         = "${var.hash_key}"
