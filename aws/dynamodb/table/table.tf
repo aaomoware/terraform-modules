@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "dt" {
-  count            = "${var.simple}"
+  count            = "${var.simple ? 1 : 0}"
 
   name             = "${var.name}"
   hash_key         = "${var.hash_key}"
@@ -34,7 +34,7 @@ resource "aws_dynamodb_table" "dt" {
 
 #---local_secondary_index
 resource "aws_dynamodb_table" "dt_local_index" {
-  count            = "${var.local_secondary_index}"
+  count            = "${var.local_secondary_index ? 1 : 0}"
 
   name             = "${var.name}"
   hash_key         = "${var.hash_key}"
@@ -75,7 +75,7 @@ resource "aws_dynamodb_table" "dt_local_index" {
 
 #---global_secondary_index
 resource "aws_dynamodb_table" "dt_global_index" {
-  count            = "${var.global_secondary_index}"
+  count            = "${var.global_secondary_index ? 1 : 0}"
 
   name             = "${var.name}"
   hash_key         = "${var.hash_key}"
