@@ -2,7 +2,7 @@ resource "aws_dynamodb_table" "dt" {
 
   name             = "${var.name}"
   hash_key         = "${var.hash_key}"
-  range_key        = "${var.range_keyß}"
+  range_key        = "${var.range_key}"
   read_capacity    = "${var.read_capacity}"
   stream_enabled   = "${var.stream_enabled}"
   write_capacity   = "${var.write_capacity}"
