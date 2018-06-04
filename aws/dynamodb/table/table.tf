@@ -4,8 +4,8 @@ resource "aws_dynamodb_table" "dt" {
   hash_key         = "${var.hash_key}"
   range_key        = "${var.range_key}"
   read_capacity    = "${var.read_capacity}"
-  stream_enabled   = "${var.stream_enabled}"
   write_capacity   = "${var.write_capacity}"
+  stream_enabled   = "${var.stream_enabled}"
   stream_view_type = "${var.stream_view_type}"
 
   tags             = "${var.tags}"
