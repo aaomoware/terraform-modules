@@ -12,13 +12,13 @@ resource "aws_dynamodb_table" "dt" {
   attribute        = "${var.attributes}"
 
   server_side_encryption {
-    enable = "${var.sse_enable}"
+    enabled = "${var.sse_enable}"
   }
   point_in_time_recovery {
-    enable = "${var.pitr_enable}"
+    enabled = "${var.pitr_enable}"
   }
 
-  timeout {
+  timeouts {
     create = "${var.to_create}"
     update = "${var.to_update}"
     delete = "${var.to_delete}"
