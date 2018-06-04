@@ -11,10 +11,27 @@ variable read_capacity            { default = 20 }
 variable write_capacity           { default = 20 }
 variable ttl_attribute_name       { default = "TimeToExist" }
 
-variable to_create                { default = "10m" }
-variable to_update                { default = "10m" }
-variable to_delete                { default = "10m" }
-variable sse_enable               { default = false }
-variable pitr_enable              { default = false }
-variable ttl_enabled              { default = false }
-variable stream_enabled           { default = false }
+variable to_create                 { default = "10m" }
+variable to_update                 { default = "10m" }
+variable to_delete                 { default = "10m" }
+variable sse_enable                { default = false }
+variable pitr_enable               { default = false }
+variable ttl_enabled               { default = false }
+variable stream_enabled            { default = false }
+
+variable simple                                     { default = false }
+variable local_secondary_index                      { default = false }
+variable global_secondary_index                     { default = false }
+
+variable local_secondary_index_name                 {}
+variable local_secondary_index_range_key            {}
+variable local_secondary_index_projection_type      {}
+variable local_secondary_index_non_key_attributes   { default = [] type = "list" }
+
+variable global_secondary_index_name                {}
+variable global_secondary_index_hash_key            {}
+variable global_secondary_index_range_key           { default = "" }
+variable global_secondary_index_read_capacity       {}
+variable global_secondary_index_write_capacity      {}
+variable global_secondary_index_projection_type     {}
+variable global_secondary_index_non_key_attributes  { default = "" }
