@@ -11,9 +11,9 @@ variable read_capacity            { default = 20 }
 variable write_capacity           { default = 20 }
 variable ttl_attribute_name       { default = "TimeToExist" }
 
-variable to_create                { default = 10m }
-variable to_update                { default = 10m }
-variable to_delete                { default = 10m }
+variable to_create                { default = "10" }
+variable to_update                { default = "10" }
+variable to_delete                { default = "10" }
 variable sse_enable               { default = false }
 variable pitr_enable              { default = false }
 variable ttl_enabled              { default = false }
