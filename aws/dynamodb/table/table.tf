@@ -26,6 +26,6 @@ resource "aws_dynamodb_table" "dt" {
 
   ttl {
     enabled        = "${var.ttl_enabled}"
-    attribute_name = "${var.attribute_name}"
+    attribute_name = "${var.ttl_attribute_name}"
   }
 }
