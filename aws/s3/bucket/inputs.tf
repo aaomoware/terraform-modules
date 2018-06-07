@@ -57,7 +57,6 @@ variable noncurrent_version_expiration {
   default = [
     {
       days = 90
-      date = ""
     }
   ]
 }
