@@ -14,14 +14,14 @@ resource "aws_s3_bucket" "l" {
 
   lifecycle_rule {
     id         = "${var.id}"
-    tags       = "${var.lifecycle_tags}"
+    tags       = "${var.l_tags}"
     prefix     = "${var.l_prefix}"
     enabled    = "${var.enabled}"
     transition = "${var.transition}"
     expiration = "${var.expiration}"
   }
 }
-lifecycle
+
 #--- object lifecycle, with versioning
 resource "aws_s3_bucket" "lv" {
   count               = "${var.lifecycle && var.versioning ? 1 : 0}"
