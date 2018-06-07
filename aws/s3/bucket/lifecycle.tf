@@ -44,7 +44,7 @@ resource "aws_s3_bucket" "lv" {
     tags       = "${var.l_tags}"
     prefix     = "${var.l_prefix}"
     enabled    = "${var.enabled}"
-    noncurrent_version_transition = "${var.noncurrent_version_expiration}"
+    noncurrent_version_transition = "${var.noncurrent_version_transition}"
     noncurrent_version_expiration = "${var.noncurrent_version_expiration}"
   }
 }
