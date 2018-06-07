@@ -73,7 +73,12 @@ variable noncurrent_version_expiration {
 variable id                        { default = "" }
 variable l_tags                    { default = {} type = "map" }
 variable l_prefix                  { default = "" }
-variable expiration                { default = 90 }
+variable expiration                {
+  default = [
+    days = 90
+    ]
+    type = "list"
+  }
 variable transition                {
   default = [
     {
@@ -82,7 +87,7 @@ variable transition                {
     },
     {
       days = 30
-      storage_class = "STANDARD"
+      storage_class = "STANDARD_IA"
     },
     {
       days = 60
