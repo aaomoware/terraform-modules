@@ -62,7 +62,7 @@ variable noncurrent_version_expiration {
     }
   ]
 }
-variable noncurrent_version_expiration {
+variable noncurrent_version_transition {
   default = [
     {
       days = 30
