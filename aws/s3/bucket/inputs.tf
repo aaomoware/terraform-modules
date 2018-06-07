@@ -71,7 +71,8 @@ variable noncurrent_version_expiration {
   }
 
 variable id                        { default = "" }
-variable prefix                    { default = "" }
+variable l_tags                    { default = {} type = "map" }
+variable l_prefix                  { default = "" }
 variable expiration                { default = 90 }
 variable transitions               {
   default = [

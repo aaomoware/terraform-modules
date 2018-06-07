@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "l" {
   lifecycle_rule {
     id         = "${var.id}"
     tags       = "${var.lifecycle_tags}"
-    prefix     = "${var.prefix}"
+    prefix     = "${var.l_prefix}"
     enabled    = "${var.enabled}"
     transition = "${var.transitions}"
     expiration = "${var.expirations}"
@@ -41,8 +41,8 @@ resource "aws_s3_bucket" "lv" {
   }
 
   lifecycle_rule {
-    tags       = "${var.lifecycle_tags}"
-    prefix     = "${var.prefix}"
+    tags       = "${var.l_tags}"
+    prefix     = "${var.l_prefix}"
     enabled    = "${var.enabled}"
     noncurrent_version_transition = "${var.noncurrent_version_expiration}"
   }
