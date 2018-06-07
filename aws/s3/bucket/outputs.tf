@@ -372,7 +372,7 @@ output "l_bucket_domain_name" {
 }
 
 #---lifecycle, with versioning
-utput "lv_id" {
+output "lv_id" {
   value = "${element(concat(aws_s3_bucket.lv.*.id, list("")), 0)}"
 }
 output "lv_arn" {

@@ -21,8 +21,7 @@ resource "aws_s3_bucket" "l" {
     expiration = "${var.expirations}"
   }
 }
-
-
+lifecycle
 #--- object lifecycle, with versioning
 resource "aws_s3_bucket" "lv" {
   count               = "${var.lifecycle && var.versioning ? 1 : 0}"
