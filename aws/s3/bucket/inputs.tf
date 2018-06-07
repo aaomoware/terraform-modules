@@ -52,7 +52,16 @@ variable error_document            { default = "" }
 variable redirect_all_requests_to  { default = "" }
 
 
-#--- object lifecycle
+#--- object lifecycle, versioning
+variable noncurrent_version_expiration {
+  default = [
+    {
+      days = 90
+      data = ""
+      expired_object_delete_marker = ""
+    }
+  ]
+}
 variable noncurrent_version_expiration {
   default = [
     {
@@ -62,14 +71,12 @@ variable noncurrent_version_expiration {
     {
       days = 60
       storage_class = "GLACIER"
-    },
-    {
-      days = 90
     }
-    ]
+  ]
     type = "list"
-  }
+}
 
+#--- object lifecycle
 variable id                        { default = "" }
 variable l_tags                    { default = {} type = "map" }
 variable l_prefix                  { default = "" }
