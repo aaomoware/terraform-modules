@@ -84,10 +84,6 @@ variable expiration                {
 variable transition                {
   default = [
     {
-      days = 15
-      storage_class = "ONEZONE_IA"
-    },
-    {
       days = 30
       storage_class = "STANDARD_IA"
     },
