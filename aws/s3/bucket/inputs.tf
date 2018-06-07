@@ -14,7 +14,7 @@ variable kms_master_key_id         { default = "" }
 variable target_bucket             { default = "" }
 variable target_prefix             { default = "" }
 
-#---versioning
+#---versioning, lifecycle_rule
 variable enabled                   { default = "" }
 variable mfa_delete                { default = "" }
 
@@ -30,6 +30,7 @@ variable cors                      { default = false }
 variable basic                     { default = false }
 variable prefix                    { default = false }
 variable logging                   { default = false }
+variable lifecycle                 { default = false }
 variable encryption                { default = false }
 variable versioning                { default = false }
 variable replication               { default = false }
@@ -49,3 +50,42 @@ variable routing_rules             { default = "" }
 variable index_document            { default = "" }
 variable error_document            { default = "" }
 variable redirect_all_requests_to  { default = "" }
+
+
+#--- object lifecycle
+variable noncurrent_version_expiration {
+  default = [
+    {
+      days = 30
+      storage_class = "STANDARD_IA"
+    },
+    {
+      days = 60
+      storage_class = "GLACIER"
+    },
+    {
+      days = 90
+    }
+    ]
+    type = "list"
+  }
+
+variable id                        { default = "" }
+variable prefix                    { default = "" }
+variable expiration                { default = 90 }
+variable transitions               {
+  default = [
+    {
+      days = 15
+      storage_class = "ONEZONE_IA"
+    },
+    {
+      days = 30
+      storage_class = "STANDARD"
+    },
+    {
+      days = 60
+      storage_class = "GLACIER"
+    }
+    ]
+  }
