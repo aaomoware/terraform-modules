@@ -57,8 +57,7 @@ variable noncurrent_version_expiration {
   default = [
     {
       days = 90
-      data = ""
-      expired_object_delete_marker = ""
+      date = ""
     }
   ]
 }
