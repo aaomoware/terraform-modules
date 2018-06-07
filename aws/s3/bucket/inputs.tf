@@ -75,10 +75,12 @@ variable l_tags                    { default = {} type = "map" }
 variable l_prefix                  { default = "" }
 variable expiration                {
   default = [
-    days = 90
-    ]
+    {
+      days = 90
+    }
+  ]
     type = "list"
-  }
+}
 variable transition                {
   default = [
     {
