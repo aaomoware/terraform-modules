@@ -17,8 +17,8 @@ resource "aws_s3_bucket" "l" {
     tags       = "${var.lifecycle_tags}"
     prefix     = "${var.l_prefix}"
     enabled    = "${var.enabled}"
-    transition = "${var.transitions}"
-    expiration = "${var.expirations}"
+    transition = "${var.transition}"
+    expiration = "${var.expiration}"
   }
 }
 lifecycle

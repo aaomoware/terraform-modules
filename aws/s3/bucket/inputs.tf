@@ -74,7 +74,7 @@ variable id                        { default = "" }
 variable l_tags                    { default = {} type = "map" }
 variable l_prefix                  { default = "" }
 variable expiration                { default = 90 }
-variable transitions               {
+variable transition                {
   default = [
     {
       days = 15
