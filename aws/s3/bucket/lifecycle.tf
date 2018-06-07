@@ -1,6 +1,6 @@
 #--- object lifecycle
 resource "aws_s3_bucket" "l" {
-  count               = "${var.lifecycle && !var.prefix ? 1 : 0}"
+  count               = "${var.lifecycle && !var.versioning ? 1 : 0}"
 
   acl                 = "${var.acl}"
   bucket              = "${var.bucket}"
