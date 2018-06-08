@@ -12,13 +12,15 @@ variable option_group_description       { default = "Managed by Terraform" }
 variable options {
   default = [
     {
-      port = ""
-      version = ""
+      port = 11211
+      version = "13.1.0.0"
       option_name = "Timezone"
-      option_settings = {
-        name = "TIME_ZONE"
-        value = "UTC"
-      }
+      option_settings = [
+        {
+          name = "TIME_ZONE"
+          value = "UTC"
+        }
+      ]
       db_security_group_memberships = [""]
       vpc_security_group_memberships = [""]
     },
