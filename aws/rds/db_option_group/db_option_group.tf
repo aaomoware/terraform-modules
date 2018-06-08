@@ -6,7 +6,7 @@ resource "aws_db_option_group" "dog" {
   major_engine_version     = "${var.major_engine_version}"
   option_group_description = "${var.option_group_description}"
 
-  timeout {
+  timeouts {
     delete = "${var.delete}"
   }
 }
