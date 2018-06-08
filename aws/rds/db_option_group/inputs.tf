@@ -2,7 +2,7 @@
 variable engine_name                    {}
 variable major_engine_version           {}
 
-variable tags                           { default = "" }
+variable tags                           { default = {} type = "map" }
 variable name                           { default = "" }
 variable port                           { default = "" }
 variable delete                         { default = 15 }
