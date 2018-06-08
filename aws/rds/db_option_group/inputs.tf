@@ -13,7 +13,7 @@ variable options {
   default = [
     {
       port = 11211
-      version = "13.1.0.0"
+      version = "10.0.24"
       option_name = "Timezone"
       option_settings = [
         {
@@ -25,7 +25,7 @@ variable options {
       vpc_security_group_memberships = [""]
     },
     {
-      option_name = ""
+      option_name = "TDE"
     }
   ]
   type = "list"
