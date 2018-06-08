@@ -7,29 +7,9 @@ variable name                           { default = "" }
 variable port                           { default = "" }
 variable delete                         { default = "15m" }
 variable version                        { default = "" }
+variable options                        { default = [] type = "list" }
 variable name_prefix                    { default = "" }
-variable option_group_description       { default = "Managed by Terraform" }
-variable options {
-  default = [
-    {
-      port = 11211
-      version = "10.0.24"
-      option_name = "Timezone"
-      option_settings = [
-        {
-          name = "TIME_ZONE"
-          value = "UTC"
-        }
-      ]
-      db_security_group_memberships = [""]
-      vpc_security_group_memberships = [""]
-    },
-    {
-      option_name = "TDE"
-    }
-  ]
-  type = "list"
-}
 variable option_settings                { default = [] type = "list" }
+variable option_group_description       { default = "Managed by Terraform" }
 variable db_security_group_memberships  { default = [] type = "list" }
 variable vpc_security_group_memberships { default = [] type = "list" }
