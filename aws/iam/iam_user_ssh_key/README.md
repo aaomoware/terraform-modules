@@ -11,13 +11,11 @@ variable public_key { default = {} type = "map" }
 
 ##### Outputs
 ```
-resource "aws_iam_user_ssh_key" "user_sshk" {
-  count      = "${length(var.username)}"
-  username   = "${element(var.username, count.index)}"
-
-  status     = "${var.status[element(var.username, count.index)]}"
-  encoding   = "${var.encoding[element(var.username, count.index)]}"
-  public_key = "${var.public_key[element(var.username, count.index)]}"
+output "fingerprint" {
+  value = "${element(concat(aws_iam_user_ssh_key.user_sshk.*.fingerprint,list("")),0)}"
+}
+output "ssh_public_key_id" {
+  value = "${element(concat(aws_iam_user_ssh_key.user_sshk.*.ssh_public_key_id,list("")),0)}"
 }
 ```
 
