@@ -3,27 +3,26 @@
 
 ###### Variables
 ```
-#-- groups & policies
-
-variable "iam_group_path"                    { default = {} type = "map" }
-variable "iam_group_names"                   { default = [] type = "list" }
-
-variable "iam_group_policy_names"            { default = [] type = "list" }
-variable "iam_group_policy_policy"           { default = {} type = "map" }
-variable "iam_group_policy_groups"           { default = {} type = "map" }
-variable "iam_group_policy_attachment_arn"   { default = [] type = "list" }
-variable "iam_group_policy_attachment_group" { default = {} type = "map" }
+variable "paths"                   { default = {} type = "map" }
+variable "names"                   { default = [] type = "list" }
 ```
 
 ##### Outputs
 ```
-#- Group
-output "iam_group_name" {
-  value = "${aws_iam_group.iam_group.*.name}"
+output "id" {
+  value = "${element(concat(aws_iam_group.ig.*.id,list("")),0)}"
 }
-
-output "iam_group_policy_name" {
-  value = "${aws_iam_group_policy.iam_group_policy.*.name}"
+output "arn" {
+  value = "${element(concat(aws_iam_group.ig.*.arn,list("")),0)}"
+}
+output "name" {
+  value = "${element(concat(aws_iam_group.ig.*.name,list("")),0)}"
+}
+output "path" {
+  value = "${element(concat(aws_iam_group.ig.*.path,list("")),0)}"
+}
+output "unique_id" {
+  value = "${element(concat(aws_iam_group.ig.*.unique_id,list("")),0)}"
 }
 ```
 
