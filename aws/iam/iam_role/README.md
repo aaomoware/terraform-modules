@@ -3,43 +3,30 @@
 
 ###### Variables
 ```
-#-- roles & policies
-
-variable "iam_role_name"                     { default = [] type = "list" }
-variable "iam_role_description"              { default = {} type = "map" }
-variable "iam_role_assume_role_policy"       { default = {} type = "map" }
-variable "iam_role_force_detach_policies"    { default = true }
-
-variable "iam_role_policy_name"              { default = [] type = "list" }
-variable "iam_role_policy_role"              { default = {} type = "map" }
-variable "iam_role_policy_policy"            { default = {} type = "map" }
+variable name                  { default = [] type = "list" }
+variable path                  { default = "/" }
+variable description           { default = {} type = "map" }
+variable assume_role_policy    { default = {} type = "map" }
+variable max_session_duration  { default = 12 }
+variable force_detach_policies { default = true }
 ```
 
 ##### Outputs
 ```
-#- Role Outputs
-output "iam_role_name" {
-  value = "${aws_iam_role.iam_role.*.name}"
+output "arn" {
+  value = "${element(concant(aws_iam_role.ir.*.arn,list("")),0)}"
 }
-
-output "iam_role_arn" {
-  value = "${aws_iam_role.iam_role.*.arn}"
+output "unique_id" {
+  value = "${element(concant(aws_iam_role.ir.*.unique_id,list("")),0)}"
 }
-
-output "iam_role_unique_id" {
-  value = "${aws_iam_role.iam_role.*.unique_id}"
+output "name" {
+  value = "${element(concant(aws_iam_role.ir.*.name = "",list("")),0)}"
 }
-
-output "iam_role_policy_id" {
-  value = "${aws_iam_role_policy.iam_role_policy.*.id}"
+output "create_date" {
+  value = "${element(concant(aws_iam_role.ir.*.create_date,list("")),0)}"
 }
-
-output "iam_role_policy_name" {
-  value = "${aws_iam_role_policy.iam_role_policy.*.name}"
-}
-
-output "iam_role_policy_policy" {
-  value = "${aws_iam_role_policy.iam_role_policy.*.policy}"
+output "description" {
+  value = "${element(concant(aws_iam_role.ir.*.description,list("")),0)}"
 }
 ```
 
