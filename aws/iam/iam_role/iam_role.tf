@@ -1,8 +1,8 @@
 resource "aws_iam_role" "ir" {
   count                 = "${length(var.name) != 0 ? length(var.name) : 0}"
   name                  = "${element(var.name,count.index)}"
-  path                  = "${var.paths}"
-  description           = "${var.descriptiosn[element(var.name,count.index)]}"
+  path                  = "${var.path}"
+  description           = "${var.description[element(var.name,count.index)]}"
   assume_role_policy    = "${var.assume_role_policy[element(var.name,count.index)]}"
   max_session_duration  = "${var.max_session_duration}"
   force_detach_policies = "${var.force_detach_policies}"
