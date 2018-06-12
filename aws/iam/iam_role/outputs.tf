@@ -1,15 +1,15 @@
 output "arn" {
-  value = "${element(concant(aws_iam_role.ir.*.arn,list("")),0)}"
+  value = "${element(concat(aws_iam_role.ir.*.arn,list("")),0)}"
 }
 output "unique_id" {
-  value = "${element(concant(aws_iam_role.ir.*.unique_id,list("")),0)}"
+  value = "${element(concat(aws_iam_role.ir.*.unique_id,list("")),0)}"
 }
 output "name" {
-  value = "${element(concant(aws_iam_role.ir.*.name = "",list("")),0)}"
+  value = "${element(concat(aws_iam_role.ir.*.name = "",list("")),0)}"
 }
 output "create_date" {
-  value = "${element(concant(aws_iam_role.ir.*.create_date,list("")),0)}"
+  value = "${element(concat(aws_iam_role.ir.*.create_date,list("")),0)}"
 }
 output "description" {
-  value = "${element(concant(aws_iam_role.ir.*.description,list("")),0)}"
+  value = "${element(concat(aws_iam_role.ir.*.description,list("")),0)}"
 }
