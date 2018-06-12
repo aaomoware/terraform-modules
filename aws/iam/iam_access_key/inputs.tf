@@ -1,2 +1,2 @@
 variable user     { default = [] type = "list" }
-variable gpg_key  { default = {} type = "map" }
+variable pgp_key  { default = {} type = "map" }
