@@ -4,8 +4,8 @@ output "ak_id" {
 output "ak_user" {
   value = "${element(concat(aws_iam_access_key.ak.*.user,list("")),0)}"
 }
-output "ak_secret_key" {
-  value = "${element(concat(aws_iam_access_key.ak.*.secret,list("")),0)}"
+output "ak_secret_encrypted_secret" {
+  value = "${element(concat(aws_iam_access_key.ak.*.encrypted_secret,list("")),0)}"
 }
 output "ak_key_fingerprint" {
   value = "${element(concat(aws_iam_access_key.ak.*.key_fingerprint,list("")),0)}"
