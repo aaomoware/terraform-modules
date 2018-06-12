@@ -12,18 +12,18 @@ variable name_prefix { default = "" }
 
 ##### Outputs
 ```
-output "iam_user_id" {
-  value = "${aws_iam_user_policy.user_name.id}"
+output "id" {
+  value = "${element(concat(aws_iam_user_policy.iup.*.id,list("")),0)}"
 }
-output "iam_user_name" {
-  value = "${aws_iam_user_policy.user_name.name}"
+output "name" {
+  value = "${element(concat(aws_iam_user_policy.iup.*.id,list("")),0)}"
 }
 
-output "iam_user_prefix_id" {
-  value = "${aws_iam_user_policy.user_prefix.id}"
+output "id_prefix" {
+  value = "${element(concat(aws_iam_user_policy.iup_prefix.*.id,list("")),0)}"
 }
-output "iam_user_prefix_name" {
-  value = "${aws_iam_user_policy.user_prefix.name}"
+output "name_prefix" {
+  value = "${element(concat(aws_iam_user_policy.iup_prefix.*.id,list("")),0)}"
 }
 ```
 
