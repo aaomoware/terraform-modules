@@ -31,4 +31,4 @@ output "description" {
 ```
 
 ###### Documentation
-[aws_iam_role](https://www.terraform.io/docs/providers/aws/d/iam_role.html)
+[aws_iam_role](https://www.terraform.io/docs/providers/aws/r/iam_role.html)
