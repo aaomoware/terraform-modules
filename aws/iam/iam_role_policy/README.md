@@ -5,7 +5,7 @@
 ```
 variable names              { default = [] type = "list" }
 variable roles              { default = {} type = "map" }
-variable policys            { default = {} type = "map" }
+variable policies           { default = {} type = "map" }
 ```
 
 ##### Outputs
