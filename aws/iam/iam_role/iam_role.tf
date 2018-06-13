@@ -10,7 +10,7 @@ resource "aws_iam_role" "ir" {
     {
       "Action": "sts:AssumeRole",
       "Principal": {
-        "Service": "${var.assume_role_policy[element(var.name,count.index)]}.amazonaws.com"
+        "${var.service_aws}": "${var.assume_role_policy[element(var.name,count.index)]}"
       },
       "Effect": "Allow",
       "Sid": ""
