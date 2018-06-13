@@ -18,7 +18,6 @@ resource "aws_iam_role" "ir" {
   ]
 }
 EOF
-}
   max_session_duration  = "${var.max_session_duration}"
   force_detach_policies = "${var.force_detach_policies}"
 }
