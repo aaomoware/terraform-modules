@@ -2,7 +2,7 @@ output "id" {
   value = "${element(concat(aws_iam_user_policy.iup.*.id,list("")),0)}"
 }
 output "name" {
-  value = "${element(concat(aws_iam_user_policy.iup.*.id,list("")),0)}"
+  value = "${element(concat(aws_iam_user_policy.iup.*.name,list("")),0)}"
 }
 
 output "id_prefix" {
