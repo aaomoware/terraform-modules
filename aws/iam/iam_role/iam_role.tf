@@ -3,21 +3,7 @@ resource "aws_iam_role" "ir" {
   name                  = "${element(var.name,count.index)}"
   path                  = "${var.path}"
   description           = "${var.description[element(var.name,count.index)]}"
-  assume_role_policy    = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "${var.service_aws}": "${var.assume_role_policy[element(var.name,count.index)]}"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}
-EOF
+  assume_role_policy    = "${assume_role_policy[element(var.name,count.index)]}"
   max_session_duration  = "${var.max_session_duration}"
   force_detach_policies = "${var.force_detach_policies}"
 }
