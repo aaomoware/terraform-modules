@@ -1,9 +1,9 @@
 output "arn" {
-  value = "${element(concat(aws_iam_user.iu.*.arn,list("")),0)}"
+  value = "${aws_iam_user.iu.*.arn}"
 }
 output "name" {
-  value = "${element(concat(aws_iam_user.iu.*.name,list("")),0)}"
+  value = "${aws_iam_user.iu.*.name}"
 }
 output "unique_id" {
-  value = "${element(concat(aws_iam_user.iu.*.unique_id,list("")),0)}"
+  value = "${aws_iam_user.iu.*.unique_id}"
 }
