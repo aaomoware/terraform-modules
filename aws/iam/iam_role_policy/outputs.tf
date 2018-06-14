@@ -1,12 +1,12 @@
 output "id" {
-  value = "${element(concat(aws_iam_role_policy.irp.*.id,list("")),0)}"
+  value = "${aws_iam_role_policy.irp.*.id}"
 }
 output "role" {
-  value = "${element(concat(aws_iam_role_policy.irp.*.role,list("")),0)}"
+  value = "${aws_iam_role_policy.irp.*.role}"
 }
 output "name" {
-  value = "${element(concat(aws_iam_role_policy.irp.*.name,list("")),0)}"
+  value = "${aws_iam_role_policy.irp.*.name}"
 }
 output "policy" {
-  value = "${element(concat(aws_iam_role_policy.irp.*.policy,list("")),0)}"
+  value = "${aws_iam_role_policy.irp.*.policy}"
 }
