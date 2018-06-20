@@ -1,5 +1,5 @@
 resource "aws_organizations_policy" "op" {
-  count       = "${length(var.name}"
+  count       = "${length(var.name)}"
 
   name        = "${element(var.name, count.index)}"
   type        = "${var.type}"
