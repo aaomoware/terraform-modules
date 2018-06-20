@@ -1,6 +1,8 @@
 resource "aws_organizations_policy" "op" {
-  name        = "${var.name}"
-  type        = "${var.type}"
-  content     = "${var.content}"
-  description = "${var.description}"
+  count       = "${length(var.names)}"
+
+  name        = "${element(var.name, count.index)}"
+  type        = "${element(var.type, count.index)}"
+  content     = "${element(var.content, count.index)}"
+  description = "${element(var.description, count.index)}"
 }
