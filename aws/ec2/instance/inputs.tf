@@ -1,11 +1,12 @@
 variable basic                                { default = false }
 variable network                              { default = false }
+variable instance_count                       { default = "1" }
 
 variable ami                                  {}
 variable tags                                 { default = {} type = "map" }
 variable tenancy                              { default = "" }
 variable key_name                             { default = "" }
-variable subnet_id                            { default = "" }
+variable subnet_id                            { default = [] type = "list" }
 variable user_data                            { default = "" }
 variable monitoring                           { default = "" }
 variable private_ip                           { default = "" }
