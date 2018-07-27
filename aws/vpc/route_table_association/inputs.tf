@@ -1,2 +1,2 @@
-variable subnet_id      { default = [] type = "list" }
-variable route_table_id { default = ""}
+variable subnet_id      { type = "list" }
+variable route_table_id { default = "" }
