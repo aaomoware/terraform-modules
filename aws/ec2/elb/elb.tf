@@ -5,7 +5,7 @@ resource "aws_elb" "elb" {
   listener = "${var.listener_one}"
   listener = "${var.listener_two}"
 
-  access_logs = "${var.access_logs}"
+#  access_logs = "${var.access_logs}"
   health_check = "${var.health_check}"
 
   instances                   = ["${var.instances}"]
