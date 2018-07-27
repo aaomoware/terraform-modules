@@ -10,9 +10,6 @@ output "name" {
 output "dns_name" {
   value = "${aws_elb.elb.dns_name}"
 }
-output "instances" {
-  value = "${aws_elb.elb.*.instances}"
-}
 output "source_security_group" {
   value = "${aws_elb.elb.source_security_group}"
 }
