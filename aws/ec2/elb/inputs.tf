@@ -3,7 +3,7 @@ variable tags                        { default = {} type = "map" }
 variable subnets                     { default = [] type = "list" }
 variable internal                    { default = "" }
 variable instances                   { default = [] type = "list" }
-variable access_logs                 { default = {} type = "map "}
+variable access_logs                 { default = {} type = "map"}
 variable listener_one                { type = "map" }
 variable listener_two                { type = "map" }
 variable health_check                { type = "map" }
