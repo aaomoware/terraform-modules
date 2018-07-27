@@ -3,7 +3,7 @@ resource "aws_security_group_rule" "ss_group_id" {
   count  = "${var.ss_group_id ? 1 : 0}"
 
   type             = "${var.type}"
-  selF             = "${var.selF}"
+  self             = "${var.selF}"
   to_port          = "${var.to_port}"
   protocol         = "${var.protocol}"
   from_port        = "${var.from_port}"
@@ -20,7 +20,7 @@ resource "aws_security_group_rule" "cidr_block" {
   count  = "${var.cidr_block ? 1 : 0}"
 
   type             = "${var.type}"
-  selF             = "${var.selF}"
+  self             = "${var.selF}"
   to_port          = "${var.to_port}"
   protocol         = "${var.protocol}"
   from_port        = "${var.from_port}"
