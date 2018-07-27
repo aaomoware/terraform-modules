@@ -1,12 +1,12 @@
 resource "aws_elb" "elb" {
   name               = "${var.name}"
+  tags               = "${var.tags}"
   availability_zones = ["${var.availability_zones}"]
 
-  listener = "${var.listener_one}"
-  listener = "${var.listener_two}"
+  listener = ["${var.listener}"]
 
 #  access_logs = "${var.access_logs}"
-  health_check = "${var.health_check}"
+  health_check = ["${var.health_check}"]
 
   instances                   = ["${var.instances}"]
   idle_timeout                = "${var.idle_timeout}"
@@ -14,5 +14,4 @@ resource "aws_elb" "elb" {
   cross_zone_load_balancing   = "${var.cross_zone_load_balancing}"
   connection_draining_timeout = "${var.connection_draining_timeout}"
 
-  tags = "${var.tags}"
 }
