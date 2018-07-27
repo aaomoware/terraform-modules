@@ -1,39 +1,39 @@
 # basic
 output "basic_instance_id" {
-  value = "${element(concat(aws_instance.basic.*.id, list("")), 0)}"
+  value = "${aws_instance.basic.*.id}"
 }
 output "basic_instance_availability_zone" {
-  value = "${element(concat(aws_instance.basic.*.availability_zone, list("")), 0)}"
+  value = "${aws_instance.basic.*.availability_zone}"
 }
 output "basic_instance_placement_group" {
-  value = "${element(concat(aws_instance.basic.*.placement_group, list("")), 0)}"
+  value = "${aws_instance.basic.*.placement_group}"
 }
 output "basic_instance_key_name" {
-  value = "${element(concat(aws_instance.basic.*.key_name, list("")), 0)}"
+  value = "${aws_instance.basic.*.key_name}"
 }
 output "basic_instance_password_data" {
-  value = "${element(concat(aws_instance.basic.*.password_data, list("")), 0)}"
+  value = "${aws_instance.basic.*.password_data}"
 }
 output "basic_instance_public_dns" {
-  value = "${element(concat(aws_instance.basic.*.public_dns, list("")), 0)}"
+  value = "${aws_instance.basic.*.public_dns}"
 }
 output "basic_instance_public_ip" {
-  value = "${element(concat(aws_instance.basic.*.public_ip, list("")), 0)}"
+  value = "${aws_instance.basic.*.public_ip}"
 }
 output "basic_instance_ipv6_addresses" {
   value = "${aws_instance.basic.*.ipv6_addresses}"
 }
 output "basic_instance_network_interface_id" {
-  value = "${element(concat(aws_instance.basic.*.network_interface_id, list("")), 0)}"
+  value = "${aws_instance.basic.*.network_interface_id}"
 }
 output "basic_instance_primary_network_interface_id" {
-  value = "${element(concat(aws_instance.basic.*.network_interface_id, list("")), 0)}"
+  value = "${aws_instance.basic.*.network_interface_id}"
 }
 output "basic_instance_private_dns" {
-  value = "${element(concat(aws_instance.basic.*.private_dns, list("")), 0)}"
+  value = "${aws_instance.basic.*.private_dns}"
 }
 output "basic_instance_private_ip" {
-  value = "${element(concat(aws_instance.basic.*.private_ip, list("")), 0)}"
+  value = "${aws_instance.basic.*.private_ip}"
 }
 # output "basic_instance_security_groups" {
 #   value = "${element(concat(aws_instance.basic.*.security_groups, list("")), 0)}"
