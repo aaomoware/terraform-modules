@@ -1,10 +1,10 @@
 resource "aws_elb" "elb" {
   name               = "${var.name}"
   tags               = "${var.tags}"
+  subnets            = ["${var.subnets}"]
   availability_zones = ["${var.availability_zones}"]
 
   listener = ["${var.listener}"]
-
 #  access_logs = "${var.access_logs}"
   health_check = ["${var.health_check}"]
 
