@@ -8,5 +8,5 @@ resource "aws_instance" "basic" {
   vpc_security_group_ids               = ["${var.vpc_security_group_ids}"]
 
   tags = "${merge(var.tags,
-    map("Name", "${var.instance_count > 1 ? "${lookup(var.tags, "Name")}-${format("%02d", count.index + 1)}" : "${lookup(var.tags, "Name")}" }))}"
+    map("Name", "${var.instance_count > 1 ? "${lookup(var.tags, "Name")}-${format("%02d", count.index + 1)}" : "${lookup(var.tags, "Name")}" }"))}"
 }
