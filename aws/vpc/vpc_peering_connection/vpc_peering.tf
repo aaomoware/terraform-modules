@@ -13,4 +13,3 @@ resource "aws_vpc_peering_connection" "vpc_peering_conn" {
      allow_remote_vpc_dns_resolution = "${var.accepter_requester["requester"]}"
    }
 }
-s
