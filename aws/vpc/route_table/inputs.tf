@@ -1,4 +1,3 @@
-variable env     { default = "" }
-variable tags    { default = {} type = "" }
-variable name    { default = "" }
-variable vpc_id  { default = "" }
+variable tags     { default = {} type = "" }
+variable vpc_id   { default = "" }
+variable rt_count { default = "1" }

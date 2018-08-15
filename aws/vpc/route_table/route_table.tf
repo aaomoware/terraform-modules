@@ -1,5 +1,6 @@
 resource "aws_route_table" "rt_table" {
-  vpc_id = "${var.vpc_id}"
+  count = "${var.rt_count }"
 
-  tags = "${var.tags}"
+  vpc_id = "${var.vpc_id}"
+  tags = "${merge(var.tags, map("Name", "${var.rt_count > 1 ? "${lookup(var.tags, "Name")}-${element(split("a,b,c", ","), count.index)}" : "${lookup(var.tags, "Name")}" }"))}"
 }
