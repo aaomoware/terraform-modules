@@ -22,7 +22,7 @@ resource "aws_route" "rt" {
 #  * https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html
 #------------
 resource "aws_route" "rt_gn" {
-  count = "${!var.default && length(var.route_table_id) > 1 ? length(var.route_table_id) : 0)}"
+  count = "${!var.default && length(var.route_table_id) > 1 ? length(var.route_table_id) : 0}"
 
   gateway_id                = "${element(var.gateway_id, count.index)}"
   route_table_id            = "${element(var.route_table_id, count.index)}"
