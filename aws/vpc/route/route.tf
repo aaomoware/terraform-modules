@@ -5,7 +5,7 @@ resource "aws_route" "rt" {
   gateway_id                = "${element(var.gateway_id, length(var.gateway_id))}"
   instance_id               = "${var.instance_id}"
   route_table_id            = "${element(var.route_table_id, length(var.route_table_id))}"
-  nat_gateway_id            = "${element(var.nat_gateway_id, length(var.nat_gateway_id)}"
+  nat_gateway_id            = "${element(var.nat_gateway_id, length(var.nat_gateway_id))}"
   network_interface_id      = "${var.network_interface_id}"
   destination_cidr_block    = "${var.destination_cidr_block}"
   egress_only_gateway_id    = "${var.egress_only_gateway_id}"
@@ -14,9 +14,9 @@ resource "aws_route" "rt" {
 
 # ----------
 # This is for setting up HA
-# For each route table tied to a subet we point to a Nat Gateway
+# For each route table tied to a subet we point to a Nat Gateway in a public subnet
 # we can add these routes in a swoop, instead of calling this module for each gateway and nat_gateway route add
-# The assumption is here: you are setting up an HA Nat per subnet environment
+# The assumption is here: you are setting up an HA Nat per subnet, private, environment
 # For more information see:
 #  * https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
 #  * https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html
