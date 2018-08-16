@@ -2,10 +2,10 @@
 resource "aws_route" "rt" {
   count = "${var.default ? 1 : 0}"
 
-  gateway_id                = "${element(var.gateway_id, length(var.gateway_id))}"
+  gateway_id                = "${length(var.gateway_id) > 1 ? element(var.gateway_id, length(var.gateway_id)) : ""}"
   instance_id               = "${var.instance_id}"
   route_table_id            = "${element(var.route_table_id, length(var.route_table_id))}"
-  nat_gateway_id            = "${element(var.nat_gateway_id, length(var.nat_gateway_id))}"
+  nat_gateway_id            = "${ength(var.nat_gateway_id) > 1 ? element(var.nat_gateway_id, length(var.nat_gateway_id)) : ""}"
   network_interface_id      = "${var.network_interface_id}"
   destination_cidr_block    = "${var.destination_cidr_block}"
   egress_only_gateway_id    = "${var.egress_only_gateway_id}"
@@ -24,7 +24,7 @@ resource "aws_route" "rt" {
 resource "aws_route" "rt_gn" {
   count = "${!var.default && length(var.route_table_id) > 1 ? length(var.route_table_id) : 0}"
 
-  gateway_id                = "${element(var.gateway_id, count.index)}"
+  gateway_id                = "${length(var.gateway_id) > 1 ? element(var.gateway_id, count.index) : ""}"
   route_table_id            = "${element(var.route_table_id, count.index)}"
-  nat_gateway_id            = "${element(var.nat_gateway_id, count.index)}"
+  nat_gateway_id            = "${length(var.nat_gateway_id) > 1 ? element(var.nat_gateway_id, count.index) : ""}"
 }
