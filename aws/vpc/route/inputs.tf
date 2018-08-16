@@ -1,4 +1,4 @@
-variable default                   { default = true }
+variable default                   { default = false }
 variable gateway_id                { default = [] type = "list" }
 variable instance_id               { default = "" }
 variable route_table_id            { type = "list" }
