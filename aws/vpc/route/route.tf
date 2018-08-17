@@ -29,13 +29,13 @@ resource "aws_route" "rt" {
   # nat_gateway_id            = "${length(var.nat_gateway_id) > 1 ? element(var.nat_gateway_id, count.index) : ""}"
 # }
 resource "aws_route" "ngw" {
-  count = "${var.ngw ? length(var.nat_gateway_id) : 0}"
+  count = "${var.ngw && length(var.nat_gateway_id) > 0 ? length(var.nat_gateway_id) : 0}"
 
   nat_gateway_id            = "${element(var.nat_gateway_id, count.index)}"
   route_table_id            = "${element(var.route_table_id, count.index)}"
 }
 resource "aws_route" "igw" {
-  count = "${var.igw ? length(var.gateway_id) : 0}"
+  count = "${var.igw && length(var.gateway_id) > 0 ? length(var.gateway_id) : 0}"
 
   gateway_id                = "${element(var.gateway_id, count.index)}"
   route_table_id            = "${element(var.route_table_id, count.index)}"
