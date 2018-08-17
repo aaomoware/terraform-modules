@@ -22,13 +22,13 @@ resource "aws_route" "rt" {
 #  * https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html
 #------------
 resource "aws_route" "igw" {
-    count = "${!var.default && var.nat_count > 0 ? var.nat_count : 0}"
+    count = "${var.nat_count}"
 
     gateway_id                = "${element(var.gateway_id, count.index)}"
     route_table_id            = "${element(var.route_table_id, count.index)}"
 }
 resource "aws_route" "ngw" {
-   count = "${!var.default && var.igw_count > 0 ? var.igw_count : 0}"
+   count = "${var.igw_count}s"
 
    nat_gateway_id            = "${element(var.nat_gateway_id, count.index)}"
    route_table_id            = "${element(var.route_table_id, count.index)}"
