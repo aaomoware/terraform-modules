@@ -1,7 +1,7 @@
 variable default                   { default = false }
 variable nat_count                 { default = "0" }
 variable igw_count                 { default = "0" }
-variable gateway_id                { default = "" }
+variable gateway_id                { default = [] type = "" }
 variable instance_id               { default = "" }
 variable route_table_id            { type = "list" }
 variable nat_gateway_id            { default = [] type = "list" }
