@@ -6,5 +6,5 @@ resource "aws_subnet" "subnets" {
   map_public_ip_on_launch         = "${var.map_public_ip_on_launch}"
   assign_ipv6_address_on_creation = "${var.assign_ipv6_address_on_creation}"
 
-  tags = "${merge(var.tags, map("Name", "${length(var.cidr_block) > 1 ? "${var.name}-${element(split("a,b,c", ","), count.index)}" : "${lookup(var.tags, "Name")}" }"))}"
+  tags = "${merge(var.tags, map("Name", "${length(var.cidr_block) > 1 ? "${var.name}-${element(split(",", "a,b,c"), count.index)}" : "${lookup(var.tags, "Name")}" }"))}"
 }
