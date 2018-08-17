@@ -7,3 +7,7 @@ variable network_interface_id      { default = "" }
 variable egress_only_gateway_id    { default = "" }
 variable destination_cidr_block    { default = "" }
 variable vpc_peering_connection_id { default = "" }
+
+
+variable ngw { default = false }
+variable igw { default = false }

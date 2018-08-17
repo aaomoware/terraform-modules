@@ -21,10 +21,22 @@ resource "aws_route" "rt" {
 #  * https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
 #  * https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html
 #------------
-resource "aws_route" "rt_gn" {
-  count = "${!var.default && length(var.route_table_id) > 1 ? length(var.route_table_id) : 0}"
+# resource "aws_route" "ngw" {
+  # count = "${!var.default && length(var.route_table_id) > 1 ? length(var.route_table_id) : 0}"
+#
+  # gateway_id                = "${length(var.gateway_id) > 1 ? element(var.gateway_id, count.index) : ""}"
+  # route_table_id            = "${element(var.route_table_id, count.index)}"
+  # nat_gateway_id            = "${length(var.nat_gateway_id) > 1 ? element(var.nat_gateway_id, count.index) : ""}"
+# }
+resource "aws_route" "ngw" {
+  count = "${var.ngw ? length(var.route_table_id) : 0}"
 
-  gateway_id                = "${length(var.gateway_id) > 1 ? element(var.gateway_id, count.index) : ""}"
+  nat_gateway_id            = "${element(var.nat_gateway_id, count.index)}"
   route_table_id            = "${element(var.route_table_id, count.index)}"
-  nat_gateway_id            = "${length(var.nat_gateway_id) > 1 ? element(var.nat_gateway_id, count.index) : ""}"
+}
+resource "aws_route" "igw" {
+  count = "${var.igw ? length(var.route_table_id) : 0}"
+
+  gateway_id                = "${element(var.gateway_id, count.index)}"
+  route_table_id            = "${element(var.route_table_id, count.index)}"
 }
