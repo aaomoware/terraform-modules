@@ -28,7 +28,7 @@ resource "aws_route" "igw" {
     route_table_id            = "${element(var.route_table_id, count.index)}"
 }
 resource "aws_route" "ngw" {
-   count = "${var.igw_count}s"
+   count = "${var.igw_count}"
 
    nat_gateway_id            = "${element(var.nat_gateway_id, count.index)}"
    route_table_id            = "${element(var.route_table_id, count.index)}"
