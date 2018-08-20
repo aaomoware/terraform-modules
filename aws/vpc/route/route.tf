@@ -1,6 +1,6 @@
 #<---generic one-to-one
 resource "aws_route" "rt" {
-  count = "${var.default}"
+  count = "${var.default ? 1 : 0}"
 
   gateway_id                = "${element(var.gateway_id, 0)}"
   instance_id               = "${var.instance_id}"
