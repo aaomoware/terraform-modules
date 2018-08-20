@@ -21,17 +21,11 @@ resource "aws_route" "rt" {
 #  * https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html
 #  * https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html
 #------------
-resource "aws_route" "igw" {
-    count = "${var.nat_count > 0 ? var.nat_count : 0}"
+resource "aws_route" "nat_igw" {
+    count = "${var.nat_igw_count > 0 ? var.nat_igw_count : 0}"
 
-    gateway_id                = "${element(var.gateway_id, count.index)}"
+    gateway_id                = "${var.nat_igw == "igw" ? element(var.gateway_id, count.index) : ""}"
+    nat_gateway_id            = "${var.nat_igw == "nat" ? element(var.nat_gateway_id, count.index) : ""}"
     route_table_id            = "${element(var.route_table_id, count.index)}"
     destination_cidr_block    = "${var.destination_cidr_block}"
 }
-# resource "aws_route" "ngw" {
-#    count = "${var.igw_count > 0 ? var.igw_count : 0}"
-#
-#    nat_gateway_id            = "${element(var.nat_gateway_id, count.index)}"
-#    route_table_id            = "${element(var.route_table_id, count.index)}"
-#    destination_cidr_block    = "${var.destination_cidr_block}"
-#}
