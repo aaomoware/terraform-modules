@@ -7,7 +7,7 @@ variable connection_id    { type = "list" }
 
 variable create           { default = "10m" }
 variable delete           { default = "10m" }
-variable enabled          { default = false }
+variable dhpvi_count      { default = "0" }
 variable address_family   { default = "ipv4" }
 
 variable bgp_auth_key     { default = "" }
