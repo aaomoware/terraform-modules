@@ -1,3 +1,3 @@
-output "vpn_gtw_id" {
+output "id" {
   value = "${aws_vpn_gateway.vpn_gtw.id}"
 }
