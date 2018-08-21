@@ -1,5 +1,5 @@
 resource "aws_dx_hosted_private_virtual_interface" "dhpvi" {
-  count = "${var.enabled ? var.dhpvi_count : 0}"
+  count = "${length(var.name)}"
 
   vlan             = "${element(var.vlan, count.index)}"
   name             = "${element(var.name, count.index)}"
