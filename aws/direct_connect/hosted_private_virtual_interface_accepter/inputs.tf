@@ -1,6 +1,6 @@
 variable tags                 { default = {} type = "map" }
 variable vpn_gateway_id       { default = "" }
-variable virtual_interface_id {}
+variable virtual_interface_id { type = "list" }
 
 variable create               { default = "10m" }
 variable delete               { default = "10m" }
