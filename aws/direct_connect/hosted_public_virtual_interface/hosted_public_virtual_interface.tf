@@ -10,7 +10,7 @@ resource "aws_dx_hosted_public_virtual_interface" "dhpvi" {
   customer_address = "${var.customer_address}"
   route_filter_prefixes = ["${var.route_filter_prefixes}"]
 
-  timeout {
+  timeouts {
     create = "${var.create}"
     delete = "${var.delete}"
   }

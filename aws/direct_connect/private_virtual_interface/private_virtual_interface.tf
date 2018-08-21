@@ -13,7 +13,7 @@ resource "aws_dx_private_virtual_interface" "dpvi" {
   amazon_address = "${var.amazon_address}"
   customer_address = "${var.customer_address}"
 
-  timeout {
+  timeouts {
     create = "${var.create}"
     delete = "${var.delete}"
   }

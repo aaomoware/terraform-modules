@@ -11,7 +11,7 @@ resource "aws_dx_hosted_private_virtual_interface" "dhpvi" {
   customer_address = "${var.customer_address}"
   owner_account_id = "${var.owner_account_id}"
 
-  timeout {
+  timeouts {
     create = "${var.create}"
     delete = "${var.delete}"
   }

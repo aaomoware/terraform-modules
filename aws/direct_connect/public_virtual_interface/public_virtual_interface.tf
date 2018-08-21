@@ -13,7 +13,7 @@ resource "aws_dx_public_virtual_interface" "dpvi" {
   amazon_address   = "${var.amazon_address}"
   route_filter_prefixes = ["${var.route_filter_prefixes}"]
 
-  timeout {
+  timeouts {
     create = "${var.create}"
     delete = "${var.delete}"
   }
