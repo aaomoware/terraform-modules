@@ -1,6 +1,5 @@
 resource "aws_vpn_gateway" "vpn_gtw" {
-  vpc_id            = "${var.vpc_id}"
-  availability_zone = "${var.availability_zone}"
-
   tags = "${var.tags}"
+  vpc_id = "${var.vpc_id}"
+  amazon_side_asn = "${var.amazon_side_asn}"
 }
