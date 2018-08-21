@@ -1,10 +1,11 @@
 resource "aws_dx_hosted_private_virtual_interface" "dhpvi" {
+  count = "${var.enabled ? var.dhpvi_count : 0}"
 
-  vlan             = "${var.vlan}"
-  name             = "${var.name}"
-  bgp_asn          = "${var.bgp_asn}"
+  vlan             = "${element(var.vlan, count.index)}"
+  name             = "${element(var.name, count.index)}"
+  bgp_asn          = "${element(var.bgp_asn, count.index)}"
   bgp_auth_key     = "${var.bgp_auth_key}"
-  connection_id    = "${var.connection_id}"
+  connection_id    = "${element(var.connection_id, count.index)}"
   amazon_address   = "${var.amazon_address}"
   address_family   = "${var.address_family}"
   customer_address = "${var.customer_address}"
