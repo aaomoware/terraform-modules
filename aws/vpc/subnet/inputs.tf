@@ -1,5 +1,4 @@
 variable tags                            { default = {} type = "map" }
-variable name                            { default = "" }
 variable vpc_id                          { default = "" }
 variable cidr_block                      { default = [] type = "list" }
 variable availability_zone               { default = [] type = "list" }
