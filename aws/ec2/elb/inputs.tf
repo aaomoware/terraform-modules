@@ -2,10 +2,10 @@ variable name                        { default = "" }
 variable tags                        { default = {} type = "map" }
 variable subnets                     { default = [] type = "list" }
 variable internal                    { default = "" }
-variable listener                    { default = [] type = "list" }
+variable listener                    { default = [] type = "map" }
 variable instances                   { default = [] type = "list" }
-variable access_logs                 { default = [] type = "list" }
-variable health_check                { default = [] type = "list" }
+variable access_logs                 { default = {} type = "map" }
+variable health_check                { default = {} type = "map" }
 variable idle_timeout                { default = 400 }
 variable security_groups             { default = [] type = "list" }
 variable availability_zones          { default = [] type = "list" }
