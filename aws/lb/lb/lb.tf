@@ -1,6 +1,6 @@
 # - application lb with access_logs and subnet mappings
 resource "aws_lb" "alm" {
-  count = "${var.lb_type == "application" && var.logs && var.maps ? 1 : 0}"
+  count = "${var.load_balancer_type == "application" && var.logs && var.maps ? 1 : 0}"
 
   tags               = "${var.tags}"
   name               = "${var.name}"
@@ -18,7 +18,7 @@ resource "aws_lb" "alm" {
 
 # - application lb with access_logs without subnet mappings
 resource "aws_lb" "al" {
-  count = "${var.lb_type == "application" && var.logs && !var.maps ? 1 : 0}"
+  count = "${var.load_balancer_type == "application" && var.logs && !var.maps ? 1 : 0}"
 
   tags               = "${var.tags}"
   name               = "${var.name}"
@@ -35,7 +35,7 @@ resource "aws_lb" "al" {
 
 # - application lb with subne mapping but without access logs
 resource "aws_lb" "am" {
-  count = "${var.lb_type == "application" && var.maps && !var.logs ? 1 : 0}"
+  count = "${var.load_balancer_type == "application" && var.maps && !var.logs ? 1 : 0}"
 
 
   tags               = "${var.tags}"
@@ -53,7 +53,7 @@ resource "aws_lb" "am" {
 
 # - application lb without subne mapping & without access logs
 resource "aws_lb" "a" {
-  count = "${var.lb_type == "application" && !var.maps && !var.logs ? 1 : 0}"
+  count = "${var.load_balancer_type == "application" && !var.maps && !var.logs ? 1 : 0}"
 
 
   tags               = "${var.tags}"
@@ -71,7 +71,7 @@ resource "aws_lb" "a" {
 
 # - network lb with subne mapping
 resource "aws_lb" "nm" {
-  count = "${var.lb_type == "network" && var.maps ? 1 : 0}"
+  count = "${var.load_balancer_type == "network" && var.maps ? 1 : 0}"
 
 
   tags               = "${var.tags}"
@@ -87,7 +87,7 @@ resource "aws_lb" "nm" {
 
 # - network lb with subne mapping
 resource "aws_lb" "n" {
-  count = "${var.lb_type == "network" && !var.maps ? 1 : 0}"
+  count = "${var.load_balancer_type == "network" && !var.maps ? 1 : 0}"
 
 
   tags               = "${var.tags}"
