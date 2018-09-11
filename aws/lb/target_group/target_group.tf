@@ -1,4 +1,6 @@
 resource "aws_lb_target_group" "ltga" {
+  count = "${var.tg_type == "application" ? 1 : 0}"
+
   name                 = "${var.name}"
   port                 = "${var.port}"
   tags                 = "${var.tags}"
@@ -12,6 +14,8 @@ resource "aws_lb_target_group" "ltga" {
 }
 
 resource "aws_lb_target_group" "ltgn" {
+  count = "${var.tg_type == "network" ? 1 : 0}"
+
   name                 = "${var.name}"
   port                 = "${var.port}"
   tags                 = "${var.tags}"

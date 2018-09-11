@@ -6,6 +6,7 @@ variable name                 { default = "" }
 variable port                 { default = "" }
 variable tags                 { default = "" }
 variable vpc_id               { default = "" }
+variable tg_type              { default = "" }
 variable protocol             { default = "" }
 variable stickiness           { default = "" }
 variable slow_start           { default = "0" }
@@ -18,30 +19,30 @@ variable deregistration_delay { default = "300" }
 ##### Outputs
 ```
 output "ltga_id" {
-  value = "${aws_alb_target_group.ltga.id}"
+  value = "${element(concat(aws_alb_target_group.ltga.*.id, list("")), 0)}"
 }
 output "ltga_arn" {
-  value = "${aws_alb_target_group.ltga.arn}"
+  value = "${element(concat(aws_alb_target_group.ltga.*.arn, list("")), 0)}"
 }
 output "ltga_name" {
-  value = "${aws_alb_target_group.ltga.name}"
+  value = "${element(concat(aws_alb_target_group.ltga.name}"
 }
 output "ltga_arn_suffix" {
-  value = "${aws_alb_target_group.ltga.arn_suffix}"
+  value = "${element(concat(aws_alb_target_group.ltga.*.arn_suffix, list("")), 0)}"
 }
 
 
 output "ltgn_id" {
-  value = "${aws_alb_target_group.ltgn.id}"
+  value = "${element(concat(aws_alb_target_group.ltgn.*.id, lists("")), 0)}"
 }
 output "ltgn_arn" {
-  value = "${aws_alb_target_group.ltgn.arn}"
+  value = "${element(concat(aws_alb_target_group.ltgn.*.arn, lists("")), 0)}"
 }
 output "ltgn_name" {
-  value = "${aws_alb_target_group.ltgn.name}"
+  value = "${element(concat(aws_alb_target_group.ltgn.*.name, lists("")), 0)}"
 }
 output "ltgn_arn_suffix" {
-  value = "${aws_alb_target_group.ltgn.arn_suffix}"
+  value = "${element(concat(aws_alb_target_group.ltgn.*.arn_suffix, list("")), 0)}"
 }
 ```
 
