@@ -5,7 +5,7 @@ output "ltga_arn" {
   value = "${element(concat(aws_alb_target_group.ltga.*.arn, list("")), 0)}"
 }
 output "ltga_name" {
-  value = "${element(concat(aws_alb_target_group.ltga.name}"
+  value = "${element(concat(aws_alb_target_group.ltga.*.name, list("")), 0)}"
 }
 output "ltga_arn_suffix" {
   value = "${element(concat(aws_alb_target_group.ltga.*.arn_suffix, list("")), 0)}"
