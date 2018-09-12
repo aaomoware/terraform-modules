@@ -4,9 +4,9 @@ resource "aws_elb" "elb" {
   subnets            = ["${var.subnets}"]
   availability_zones = ["${var.availability_zones}"]
 
-  listener = "${var.listener}"
-  access_logs = "${var.access_logs}"
-  health_check = "${var.health_check}"
+  listener = ["${var.listener}"]
+  access_logs = ["${var.access_logs}"]
+  health_check = ["${var.health_check}"]
 
   instances                   = ["${var.instances}"]
   idle_timeout                = "${var.idle_timeout}"
