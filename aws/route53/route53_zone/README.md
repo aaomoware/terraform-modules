@@ -3,6 +3,7 @@
 
 ###### Variables
 ```
+variable tags               { default = {} type = "map" }
 variable name               { default = "" }
 variable vpc_id             { default = "" }
 variable comment            { default = "" }
@@ -17,18 +18,17 @@ variable set_id             { default = false }
 ##### Outputs
 ```
 output "vpc_zone_id" {
-  value = "${aws_route53_zone.zones_vpc.zone_id}"
+  value = "${element(concat(aws_route53_zone.zones_vpc.*.zone_id, list("")), 0)}"
 }
 output "vpc_name_servers" {
-  value = "${aws_route53_zone.zones_vpc.name_servers}"
+  value = "${element(concat(aws_route53_zone.zones_vpc.*.name_servers, list("")), 0)}"
 }
-
 
 output "set_id_zone_id" {
-  value = "${aws_route53_zone.zones_set_id.zone_id}"
+  value = "${element(concat(aws_route53_zone.zones_set_id.*.zone_id, list("")), 0)}"
 }
 output "set_id_name_servers" {
-  value = "${aws_route53_zone.zones_set_id.name_servers}"
+  value = "${element(concat(aws_route53_zone.zones_set_id.*.name_servers, list("")), 0)}"
 }
 ```
 
