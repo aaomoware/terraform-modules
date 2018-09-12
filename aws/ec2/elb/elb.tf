@@ -4,9 +4,27 @@ resource "aws_elb" "elb" {
   subnets            = ["${var.subnets}"]
   availability_zones = ["${var.availability_zones}"]
 
-  listener = ["${var.listener}"]
-  access_logs = ["${var.access_logs}"]
-  health_check = ["${var.health_check}"]
+  access_logs {
+    bucket        = "${var.bucket}"
+    interval      = "${var.al_interval}"
+    bucket_prefix = "${var.bucket_prefix}"
+  }
+
+  listener {
+    lb_port           = "${var.lb_port}"
+    lb_protocol       = "${var.lb_protocol}"
+    instance_port     = "${var.instance_port}"
+    instance_protocol = "${var.instance_protocol}"
+    ssl_certificate_id = "${var.ssl_certificate_id}"
+  }
+
+  health_check {
+    target              = "${var.target}"
+    timeout             = "${var.timeout}"
+    interval            = "${var.hc_interval}"
+    healthy_threshold   = "${var.healthy_threshold}"
+    unhealthy_threshold = "${var.unhealthy_threshold}"
+  }
 
   instances                   = ["${var.instances}"]
   idle_timeout                = "${var.idle_timeout}"
