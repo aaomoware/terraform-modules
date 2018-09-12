@@ -15,7 +15,7 @@ variable connection_draining_timeout { default = 400 }
 
 
 variable bucket                      {}
-variable interval                    { default = "60" }
+variable al_interval                 { default = "60" }
 variable bucket_prefix               { default = "" }
 
 variable lb_port                     { default = "80" }
