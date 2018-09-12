@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "zones_vpc" {
-  count             = "${var.vpc ? 1 : 0}"
+  count             = "${var.type == "private" ? 1 : 0}"
 
   name              = "${var.name}"
   vpc_id            = "${var.vpc_id}"
@@ -9,7 +9,7 @@ resource "aws_route53_zone" "zones_vpc" {
 }
 
 resource "aws_route53_zone" "zones_set_id" {
-  count             = "${var.set_id ? 1 : 0}"
+  count             = "${var.type == "public" ? 1 : 0}"
 
   name              = "${var.name}"
   comment           = "${var.comment}"
