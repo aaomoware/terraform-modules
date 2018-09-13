@@ -1,7 +1,7 @@
 variable name                        { default = "" }
 variable tags                        { default = {} type = "map" }
 variable subnets                     { default = [] type = "list" }
-variable internal                    { default = "" }
+variable internal                    { default = false }
 variable listener                    { default = [] type = "list" }
 variable instances                   { default = [] type = "list" }
 variable access_logs                 { default = [] type = "list" }

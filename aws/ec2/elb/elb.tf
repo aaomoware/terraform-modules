@@ -2,6 +2,7 @@ resource "aws_elb" "elb" {
   name               = "${var.name}"
   tags               = "${var.tags}"
   subnets            = ["${var.subnets}"]
+  internal           = "${var.internal}"
 
 #<--pending elb log enablment
   # access_logs {
