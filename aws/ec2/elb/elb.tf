@@ -2,8 +2,6 @@ resource "aws_elb" "elb" {
   name               = "${var.name}"
   tags               = "${var.tags}"
   subnets            = ["${var.subnets}"]
-  availability_zones = ["${var.availability_zones}"]
-
 
 #<--pending elb log enablment
   # access_logs {
