@@ -4,11 +4,13 @@ resource "aws_elb" "elb" {
   subnets            = ["${var.subnets}"]
   availability_zones = ["${var.availability_zones}"]
 
-  access_logs {
-    bucket        = "${var.bucket}"
-    interval      = "${var.al_interval}"
-    bucket_prefix = "${var.bucket_prefix}"
-  }
+
+#<--pending elb log enablment
+  # access_logs {
+  #   bucket        = "${var.bucket}"
+  #   interval      = "${var.al_interval}"
+  #   bucket_prefix = "${var.bucket_prefix}"
+  # }
 
   listener {
     lb_port           = "${var.lb_port}"

@@ -14,7 +14,7 @@ variable cross_zone_load_balancing   { default = true }
 variable connection_draining_timeout { default = 400 }
 
 
-variable bucket                      {}
+variable bucket                      { default = "" }
 variable al_interval                 { default = "60" }
 variable bucket_prefix               { default = "" }
 
