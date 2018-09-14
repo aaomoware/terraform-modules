@@ -29,6 +29,7 @@ resource "aws_elb" "elb" {
 
   instances                   = ["${var.instances}"]
   idle_timeout                = "${var.idle_timeout}"
+  security_groups             = ["${var.security_groups}"]
   connection_draining         = "${var.connection_draining}"
   cross_zone_load_balancing   = "${var.cross_zone_load_balancing}"
   connection_draining_timeout = "${var.connection_draining_timeout}"
