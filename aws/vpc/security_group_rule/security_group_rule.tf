@@ -42,4 +42,5 @@ resource "aws_security_group_rule" "self" {
   description      = "${var.description}"
   prefix_list_ids  = ["${var.prefix_list_ids}"]
   ipv6_cidr_blocks = ["${var.ipv6_cidr_blocks}"]
+  security_group_id = "${var.security_group_id}"
 }
