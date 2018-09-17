@@ -29,3 +29,18 @@ resource "aws_security_group_rule" "cidr_block" {
   ipv6_cidr_blocks = ["${var.ipv6_cidr_blocks}"]
   security_group_id = "${var.security_group_id}"
 }
+
+
+resource "aws_security_group_rule" "self" {
+
+  count  = "${var.selF ? 1 : 0}"
+
+  type             = "${var.type}"
+  self             = "${var.selF}"
+  to_port          = "${var.to_port}"
+  protocol         = "${var.protocol}"
+  from_port        = "${var.from_port}"
+  description      = "${var.description}"
+  prefix_list_ids  = ["${var.prefix_list_ids}"]
+  ipv6_cidr_blocks = ["${var.ipv6_cidr_blocks}"]
+}
