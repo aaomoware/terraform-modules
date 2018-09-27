@@ -2,8 +2,8 @@
 variable tags                       { default = {} type = "map" }
 variable name                       { default = "" }
 variable max_size                   {}
-variable min_size                   { default = true }
-variable force_delete               { default = "" }
+variable min_size                   {}
+variable force_delete               { default = true }
 variable load_balancers             { default = [] }
 variable placement_group            { default = "" }
 variable default_cooldown           { default = 1 }
