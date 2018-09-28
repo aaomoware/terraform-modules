@@ -1,9 +1,9 @@
 output "name" {
-  value = "${aws_autoscaling_group.name}"
+  value = "${aws_autoscaling_group.ag.name}"
 }
 
 output "id" {
-  value = "${aws_autoscaling_group.id}"
+  value = "${aws_autoscaling_group.ag.id}"
 }
 
 output "arn" {
