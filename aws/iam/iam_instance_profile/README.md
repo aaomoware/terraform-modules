@@ -1,33 +1,30 @@
-#### IAM Access Key
+#### IAM Instance Profile
 
 
 ###### Variables
 ```
-variable user     { default = [] type = "list" }
-variable gpg_key  { default = {} type = "list" }
+variable name {}
+variable role {}
 ```
 
 ##### Outputs
 ```
-output "ak_id" {
-  value = "${element(concat(aws_iam_access_key.ak.*.id,list("")),0)}"
+output "id" {
+  value = "${aws_iam_instance_profile.ip.id}"
 }
-output "ak_user" {
-  value = "${element(concat(aws_iam_access_key.ak.*.user,list("")),0)}"
+output "arn" {
+  value = "${aws_iam_instance_profile.ip.arn}"
 }
-output "ak_secret_key" {
-  value = "${element(concat(aws_iam_access_key.ak.*.secret,list("")),0)}"
+output "name" {
+  value = "${aws_iam_instance_profile.ip.name}"
 }
-output "ak_key_fingerprint" {
-  value = "${element(concat(aws_iam_access_key.ak.*.key_fingerprint,list("")),0)}"
+output "role" {
+  value = "${aws_iam_instance_profile.ip.role}"
 }
-output "ak_secret_encrypted_secret" {
-  value = "${element(concat(aws_iam_access_key.ak.*.encrypted_secret,list("")),0)}"
-}
-output "ak_secret_ses_smtp_password" {
-  value = "${element(concat(aws_iam_access_key.ak.*.ses_smtp_password,list("")),0)}"
+output "unique_id" {
+  value = "${aws_iam_instance_profile.ip.unique_id}"
 }
 ```
 
 ###### Documentation
-[ aws_iam_access_key](https://www.terraform.io/docs/providers/aws/r/iam_access_key.html)
+[aws_iam_instance_profile](https://www.terraform.io/docs/providers/aws/r/iam_instance_profile.html)
