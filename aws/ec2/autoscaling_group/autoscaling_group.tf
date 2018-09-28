@@ -5,7 +5,7 @@ resource "aws_autoscaling_group" "ag" {
   max_size                  = "${var.max_size}"
   min_size                  = "${var.min_size}"
   force_delete              = "${var.force_delete}"
-  load_balancers            = "${var.load_balancers}"
+  load_balancers            = ["${var.load_balancers}"]
   placement_group           = "${var.placement_group}"
   desired_capacity          = "${var.desired_capacity}"
   default_cooldown          = "${var.default_cooldown }"
