@@ -1,4 +1,3 @@
-variable cbd                  { default = true }
 variable name                 {}
 variable key_name             {}
 variable image_id             {}

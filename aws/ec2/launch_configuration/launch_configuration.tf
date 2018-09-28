@@ -9,6 +9,6 @@ resource "aws_launch_configuration" "lc" {
   iam_instance_profile  = "${var.iam_instance_profile}"
 
   lifecycle {
-    create_before_destroy = "${var.cbd}"
+    create_before_destroy = true
   }
 }
