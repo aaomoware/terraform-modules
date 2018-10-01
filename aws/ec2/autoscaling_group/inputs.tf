@@ -1,7 +1,7 @@
 
 variable tags                       { default = [] type = "list" }
 variable name                       { default = "" }
-variable delete                     { default = "10s" }
+variable delete                     { default = "10m" }
 variable max_size                   {}
 variable min_size                   {}
 variable force_delete               { default = true }
