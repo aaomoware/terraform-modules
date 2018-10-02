@@ -1,4 +1,6 @@
 resource "vault_policy" "policy" {
-  name = "${var.name}"
+  count = "${length(var.name)}"
+  
+  name = "${element(var.name, count.index)}"
   policy = "${var.policy}"
 }
