@@ -1,4 +1,4 @@
-resource "vault_aws_secret_backend" "aws_backend" {
+resource "vault_aws_secret_backend" "asb" {
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
 
