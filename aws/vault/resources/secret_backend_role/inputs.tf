@@ -1,3 +1,3 @@
 variable name {}
-variable policy {}
+variable policy_arn {}
 variable backend {}
