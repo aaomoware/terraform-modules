@@ -1,6 +1,6 @@
 variable name               { default = ""}
-variable create             { default = "15m" }
-variable delete             { default = "15m" }
+variable create             { default = "20m" }
+variable delete             { default = "20m" }
 variable version            { default = "" }
 variable role_arn           { default = "" }
 variable subnet_ids         { default = [] type = "type" }
