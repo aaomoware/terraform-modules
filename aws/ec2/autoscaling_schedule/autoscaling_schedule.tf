@@ -1,4 +1,5 @@
-resource "aws_autoscaling_schedule" "as" {
+resource "aws_autoscaling_schedule" "asg" {
+  tags                   = "${var.tags}"
   min_size               = "${min_size}"
   max_size               = "${max_size}"
   end_time               = "${end_time}"
