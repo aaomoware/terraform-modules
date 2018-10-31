@@ -1,4 +1,4 @@
-variable name                 {}
+variable name_prefix          {}
 variable key_name             {}
 variable image_id             {}
 variable user_data            {}
