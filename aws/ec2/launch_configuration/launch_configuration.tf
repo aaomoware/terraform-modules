@@ -1,6 +1,6 @@
 resource "aws_launch_configuration" "lc" {
 
-  name_prefix           = "${var.name}"
+  name_prefix           = "${var.name_prefix}"
   key_name              = "${var.key_name}"
   image_id              = "${var.image_id}"
   user_data             = "${var.user_data}"
