@@ -1,4 +1,5 @@
 variable name_prefix          {}
+variable base64               { default = true }
 variable key_name             {}
 variable image_id             {}
 variable user_data            { default = "" }
