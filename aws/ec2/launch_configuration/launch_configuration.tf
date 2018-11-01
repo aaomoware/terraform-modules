@@ -1,5 +1,5 @@
 resource "aws_launch_configuration" "lc_base64" {
-  count = "${var.user_data_base64 != "" ? 1 : 0}"
+  count = "${length(list(var.user_data_base64)}"
 
   name_prefix           = "${var.name_prefix}"
   key_name              = "${var.key_name}"
