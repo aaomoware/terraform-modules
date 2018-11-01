@@ -1,5 +1,5 @@
 resource "aws_launch_configuration" "lc_base64" {
-  count = "${length(list(var.user_data_base64))}"
+  count = "${var.base64 ? 1 : 0}"
 
   name_prefix           = "${var.name_prefix}"
   key_name              = "${var.key_name}"
@@ -16,7 +16,7 @@ resource "aws_launch_configuration" "lc_base64" {
 }
 
 resource "aws_launch_configuration" "lc" {
-  count = "${var.user_data != "" ? 1 : 0}"
+  count = "${var.base64 ? 0 : 1}"
 
   name_prefix           = "${var.name_prefix}"
   key_name              = "${var.key_name}"
