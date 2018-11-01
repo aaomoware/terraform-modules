@@ -1,3 +1,3 @@
 output "id" {
-  value = "${aws_launch_configuration.lc.id}"
+  value = "${element(concat(aws_launch_configuration.lc.*.id, list("")), 0)}"
 }
