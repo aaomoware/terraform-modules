@@ -27,10 +27,6 @@ output "version" {
   value = "${aws_eks_cluster.ec.version}"
 }
 
-output "vpc_id" {
-  value = "${aws_eks_cluster.ec.vpc_config.vpc_id }"
-}
-
 output "vpc_config" {
   value = "${aws_eks_cluster.ec.vpc_config}"
 }
