@@ -1,9 +1,9 @@
 output "arn" {
-  values = "${aws_efs_file_system.efs.arn}"
+  value = "${aws_efs_file_system.efs.arn}"
 }
 output "id" {
-  values = "${aws_efs_file_system.efs.id}"
+  value = "${aws_efs_file_system.efs.id}"
 }
 output "dns_name" {
-  values = "${aws_efs_file_system.efs.dns_name}"
+  value = "${aws_efs_file_system.efs.dns_name}"
 }
