@@ -1,0 +1,2 @@
+variable policy     {}
+variable repository {}
