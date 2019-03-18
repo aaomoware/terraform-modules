@@ -1,5 +1,10 @@
 https://docs.microsoft.com/en-gb/learn/
 
+
+Install the Azure CLI
+https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
+
+
 Azure Code Samples:
 
 https://azure.microsoft.com/en-us/resources/samples/?sort=0
