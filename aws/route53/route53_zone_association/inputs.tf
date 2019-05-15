@@ -1,2 +1,2 @@
-variable vpc_id  { default = [] type = "list" }
-variable zone_id { default = [] type = "list" }
+variable vpc_id {}
+variable zone_id {}
