@@ -1,5 +1,5 @@
 # secure
-output "secure_id" {
+output "secure_access_key" {
   value = "${element(concat(aws_iam_access_key.secure.*.id, list("")),0)}"
 }
 
@@ -20,7 +20,7 @@ output "secure_secret_ses_smtp_password" {
 }
 
 # insecure
-output "insecure_id" {
+output "insecure_access_key" {
   value = "${element(concat(aws_iam_access_key.insecure.*.id, list("")),0)}"
 }
 
@@ -28,7 +28,7 @@ output "insecure_user" {
   value = "${element(concat(aws_iam_access_key.insecure.*.user, list("")),0)}"
 }
 
-output "insecure_secret" {
+output "insecure_secret_key" {
   value = "${element(concat(aws_iam_access_key.insecure.*.secret, list("")),0)}"
 }
 
