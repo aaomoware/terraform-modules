@@ -3,8 +3,13 @@
 
 ###### Variables
 ```
-variable role       { type = "list" }
-variable policy_arn { type = "list" }
+variable role {
+  type = "list"
+}
+
+variable policy_arn {
+  type = "map"
+}
 ```
 
 ##### Outputs
