@@ -7,3 +7,8 @@ variable path {
 variable force_destroy {
   default = true
 }
+
+variable tags {
+  type    = "map"
+  default = {}
+}
