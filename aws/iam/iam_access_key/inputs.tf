@@ -7,3 +7,7 @@ variable pgp_key {
 variable status {
   default = "Active"
 }
+
+variable encrypted_secret {
+  default = true
+}

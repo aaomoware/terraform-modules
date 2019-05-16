@@ -12,28 +12,50 @@ variable pgp_key {
 variable status {
   default = "Active"
 }
+
+variable encrypted_secret {
+  default = true
+}
 ```
 
 ##### Outputs
 ```
-output "ak_id" {
-  value = "${aws_iam_access_key.ak.id}"
+# secure
+output "secure_id" {
+  value = "${element(concat(aws_iam_access_key.secure.*.id, list("")),0)}"
 }
 
-output "ak_user" {
-  value = "${aws_iam_access_key.ak.user}"
+output "secure_user" {
+  value = "${element(concat(aws_iam_access_key.secure.*.user, list("")),0)}"
 }
 
-output "ak_secret_encrypted_secret" {
-  value = "${aws_iam_access_key.ak.encrypted_secret}"
+output "secure_secret_encrypted_secret" {
+  value = "${element(concat(aws_iam_access_key.secure.*.encrypted_secret, list("")),0)}"
 }
 
-output "ak_key_fingerprint" {
-  value = "${aws_iam_access_key.ak.key_fingerprint}"
+output "secure_key_fingerprint" {
+  value = "${element(concat(aws_iam_access_key.secure.*.key_fingerprint, list("")),0)}"
 }
 
-output "ak_secret_ses_smtp_password" {
-  value = "${aws_iam_access_key.ak.ses_smtp_password}"
+output "secure_secret_ses_smtp_password" {
+  value = "${element(concat(aws_iam_access_key.secure.*.ses_smtp_password, list("")),0)}"
+}
+
+# insecure
+output "insecure_id" {
+  value = "${element(concat(aws_iam_access_key.insecure.*.id, list("")),0)}"
+}
+
+output "insecure_user" {
+  value = "${element(concat(aws_iam_access_key.insecure.*.user, list("")),0)}"
+}
+
+output "insecure_secret" {
+  value = "${element(concat(aws_iam_access_key.insecure.*.secret, list("")),0)}"
+}
+
+output "insecure_secret_ses_smtp_password" {
+  value = "${element(concat(aws_iam_access_key.insecure.*.ses_smtp_password, list("")),0)}"
 }
 ```
 
