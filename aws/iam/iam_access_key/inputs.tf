@@ -1,2 +1,9 @@
-variable user     { default = [] type = "list" }
-variable pgp_key  { default = {} type = "map" }
+variable user {}
+
+variable pgp_key {
+  default = ""
+}
+
+variable status {
+  default = "Active"
+}

@@ -3,29 +3,37 @@
 
 ###### Variables
 ```
-variable user     { default = [] type = "list" }
-variable gpg_key  { default = {} type = "list" }
+variable user {}
+
+variable pgp_key {
+  default = ""
+}
+
+variable status {
+  default = "Active"
+}
 ```
 
 ##### Outputs
 ```
 output "ak_id" {
-  value = "${element(concat(aws_iam_access_key.ak.*.id,list("")),0)}"
+  value = "${aws_iam_access_key.ak.id}"
 }
+
 output "ak_user" {
-  value = "${element(concat(aws_iam_access_key.ak.*.user,list("")),0)}"
+  value = "${aws_iam_access_key.ak.user}"
 }
-output "ak_secret_key" {
-  value = "${element(concat(aws_iam_access_key.ak.*.secret,list("")),0)}"
-}
-output "ak_key_fingerprint" {
-  value = "${element(concat(aws_iam_access_key.ak.*.key_fingerprint,list("")),0)}"
-}
+
 output "ak_secret_encrypted_secret" {
-  value = "${element(concat(aws_iam_access_key.ak.*.encrypted_secret,list("")),0)}"
+  value = "${aws_iam_access_key.ak.encrypted_secret}"
 }
+
+output "ak_key_fingerprint" {
+  value = "${aws_iam_access_key.ak.key_fingerprint}"
+}
+
 output "ak_secret_ses_smtp_password" {
-  value = "${element(concat(aws_iam_access_key.ak.*.ses_smtp_password,list("")),0)}"
+  value = "${aws_iam_access_key.ak.ses_smtp_password}"
 }
 ```
 
