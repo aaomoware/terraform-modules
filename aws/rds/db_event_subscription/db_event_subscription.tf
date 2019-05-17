@@ -1,5 +1,5 @@
 resource "aws_db_event_subscription" "des" {
-  count            = "${var.prefix ? 0 : 1}"
+  count = "${var.prefix ? 0 : 1}"
 
   name             = "${var.name}"
   tags             = "${var.tags}"
@@ -11,13 +11,13 @@ resource "aws_db_event_subscription" "des" {
 }
 
 resource "aws_db_event_subscription" "des_prefix" {
-  count            = "${var.prefix ? 1 : 0}"
+  count = "${var.prefix ? 1 : 0}"
 
-  name             = "${var.name}"
   tags             = "${var.tags}"
   enabled          = "${var.enabled}"
   sns_topic        = "${var.sns_topic}"
   source_ids       = ["${var.source_ids}"]
+  name_prefix      = "${var.name}"
   source_type      = "${var.source_type}"
   event_categories = ["${var.event_categories}"]
 }
