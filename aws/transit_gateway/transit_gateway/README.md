@@ -1,4 +1,4 @@
-####  Step Function Activity
+#  Manages an EC2 Transit Gateway.
 
 
 Manages an EC2 Transit Gateway.
@@ -30,4 +30,4 @@ Manages an EC2 Transit Gateway.
 |propagation_default_route_table_id | Identifier of the default propagation route table|
 
 ###### Documentation
-[sfn_activity](https://www.terraform.io/docs/providers/aws/r/sfn_activity.html)
+[aws_ec2_transit_gateway](https://www.terraform.io/docs/providers/aws/r/ec2_transit_gateway.html)

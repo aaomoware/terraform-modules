@@ -1,4 +1,4 @@
-####  Step Function Activity
+#  Transit Gateway Route.
 
 
 Manages an EC2 Transit Gateway Route.

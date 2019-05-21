@@ -6,7 +6,8 @@ Manages an EC2 Transit Gateway Route Table association.
 
 
 ## Variables
-
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
 | Name | Description | Type | Default | Required |
 |transit_gateway_attachment_id | Identifier of EC2 Transit Gateway Attachment | string | - | yes |
 |transit_gateway_route_table_id | Identifier of EC2 Transit Gateway Route Table | string | - | yes |
