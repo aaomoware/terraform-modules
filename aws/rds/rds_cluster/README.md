@@ -1,182 +1,69 @@
 ####  RDS Cluster
 
-###### Variables
-```
-variable master_username                     {}
-variable master_password                     {}
-variable bucket_name                         {}
+Manages a RDS Aurora Cluster. To manage cluster instances that inherit configuration from the cluster (when not running the cluster in serverless engine mode), see the aws_rds_cluster_instance resource. To manage non-Aurora databases (e.g. MySQL, PostgreSQL, SQL Server, etc.), see the aws_db_instance resource.
 
-variable bucket_prefix                       { default = "" }
-variable source_engine                       {}
-variable ingestion_role                      {}
-variable source_engine_version               {}
-
-variable create                              { default = "120m" }
-variable update                              { default = "120m" }
-variable delete                              { default = "120m" }
-
-variable engine                              { default = "aurora" }
-variable preferred_maintenance_window        { default = "30m" }
-
-variable backtrack_window                    { default = 0 }
-variable backup_retention_period             { default = 1 }
-
-variable s3_import                           { default = false }
-variable storage_encrypted                   { default = false }
-variable apply_immediately                   { default = false }
-variable skip_final_snapshot                 { default = false }
-
-variable port                                { default = "" }
-variable tags                                { default = {} type = "map" }
-variable iam_roles                           { default = [] type = "list" }
-variable s3_import                           { default = [] type = "list" }
-variable kms_key_id                          { default = "" }
-variable source_region                       { default = "" }
-variable database_name                       { default = "" }
-variable engine_version                      { default = "" }
-variable availability_zones                  { default = [] type = "list" }
-variable cluster_identifier                  { default = "" }
-variable snapshot_identifier                 { default = "" }
-variable db_subnet_group_name                { default = "" }
-variable vpc_security_group_ids              { default = [] type = "list" }
-variable preferred_backup_window             { default = "" }
-variable final_snapshot_identifier           { default = "" }
-variable replication_source_identifier       { default = "" }
-variable db_cluster_parameter_group_name     { default = "" }
-variable iam_database_authentication_enabled { default = "" }
-```
-
-##### Outputs
-```
-output "id" {
-  value = "${element(concat(aws_rds_cluster.rc.*.id,list("")),0)}"
-}
-output "port" {
-  value = "${element(concat(aws_rds_cluster.rc.*.port,list("")),0)}"
-}
-output "engine" {
-  value = "${element(concat(aws_rds_cluster.rc.*.engine,list("")),0)}"
-}
-output "status" {
-  value = "${element(concat(aws_rds_cluster.rc.*.status,list("")),0)}"
-}
-output "endpoint" {
-  value = "${element(concat(aws_rds_cluster.rc.*.endpoint,list("")),0)}"
-}
-output "database_name" {
-  value = "${element(concat(aws_rds_cluster.rc.*.database_name,list("")),0)}"
-}
-output "hosted_zone_id" {
-  value = "${element(concat(aws_rds_cluster.rc.*.hosted_zone_id,list("")),0)}"
-}
-output "engine_version" {
-  value = "${element(concat(aws_rds_cluster.rc.*.engine_version,list("")),0)}"
-}
-output "cluster_members" {
-  value = "${element(concat(aws_rds_cluster.rc.*.cluster_members,list("")),0)}"
-}
-output "reader_endpoint" {
-  value = "${element(concat(aws_rds_cluster.rc.*.reader_endpoint,list("")),0)}"
-}
-output "master_username" {
-  value = "${element(concat(aws_rds_cluster.rc.*.master_username,list("")),0)}"
-}
-output "allocated_storage" {
-  value = "${element(concat(aws_rds_cluster.rc.*.allocated_storage,list("")),0)}"
-}
-output "storage_encrypted" {
-  value = "${element(concat(aws_rds_cluster.rc.*.storage_encrypted,list("")),0)}"
-}
-output "availability_zones" {
-  value = "${element(concat(aws_rds_cluster.rc.*.availability_zones,list("")),0)}"
-}
-output "cluster_identifier" {
-  value = "${element(concat(aws_rds_cluster.rc.*.cluster_identifier,list("")),0)}"
-}
-output "maintenance_window" {
-  value = "${element(concat(aws_rds_cluster.rc.*.maintenance_window,list("")),0)}"
-}
-output "cluster_resource_id" {
-  value = "${element(concat(aws_rds_cluster.rc.*.cluster_resource_id,list("")),0)}"
-}
-output "backup_retention_period" {
-  value = "${element(concat(aws_rds_cluster.rc.*.backup_retention_period,list("")),0)}"
-}
-output "preferred_backup_window" {
-  value = "${element(concat(aws_rds_cluster.rc.*.preferred_maintenance_window,list("")),0)}"
-}
-output "preferred_maintenance_window" {
-  value = "${element(concat(aws_rds_cluster.rc.*.preferred_maintenance_window,list("")),0)}"
-}
-output "replication_source_identifier" {
-  value = "${element(concat(aws_rds_cluster.rc.*.replication_source_identifier,list("")),0)}"
-}
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+|cluster_identifier | The cluster identifier. If omitted, Terraform will assign a random, unique identifier.| string | - | no |
+|cluster_identifier_prefix | Creates a unique cluster identifier beginning with the specified prefix. Conflicts with cluster_identifier.| string | - | no |
+|copy_tags_to_snapshot | – (Optional, boolean) Copy all Cluster tags to snapshots. Default is false.| string | false | no |
+|database_name | Name for an automatically created database on cluster creation. There are different naming restrictions per database engine:| string | - | no |
+|deletion_protection |  If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to true.| string | false | no |
+|master_password | Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file.| string | - | no |
+|master_username | Username for the master DB user. Please refer to the RDS Naming Constraints| string | - | no |
+|final_snapshot_identifier | The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.| string | - | no |
+|skip_final_snapshot | Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created.| string | false | no |
+|availability_zones | A list of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.| string | list | no |
+|backtrack_window | The target backtrack window, in seconds. Only available for aurora engine currently. To disable backtracking, set this value to 0.| string | 0 | no |
+|backup_retention_period | The days to retain backups for. Default 1| string | 1 | no |
+|preferred_backup_window | The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod| string | - | no | parameter.
+preferred_maintenance_window | The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30| string | - | no |
+port | The port on which the DB accepts connections| string | - | no |
+vpc_security_group_ids | List of VPC security groups to associate with the Cluster| string | list | no |
+snapshot_identifier | Specifies whether or not to create this cluster from a snapshot| string | - | no |
+global_cluster_identifier | The global cluster identifier specified on aws_rds_global_cluster.| string | - | no |
+storage_encrypted | Specifies whether the DB cluster is encrypted. The default is false for provisioned engine_mode and true for serverless engine_mode.| string | false | no |
+replication_source_identifier | ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica.| string | - | no |
+apply_immediately | Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is false. | string | false | no |
+db_subnet_group_name | A DB subnet group to associate with this DB instance.| string | - | no |
+db_cluster_parameter_group_name |  A cluster parameter group to associate with the cluster.| string | - | no |
+kms_key_id | The ARN for the KMS encryption key. When specifying kms_key_id, storage_encrypted needs to be set to true.| string | - | no |
+iam_roles |  A List of ARNs for the IAM roles to associate to the RDS Cluster.| string | list | no |
+iam_database_authentication_enabled | Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. | string | - | no |
+engine | The name of the database engine to be used for this DB cluster. Defaults to aurora. Valid Values: aurora, aurora-mysql, aurora-postgresql| string | aurora | no |
+engine_mode | The database engine mode. Valid values: global, parallelquery, provisioned, serverless. Defaults to: provisioned. | string | provisioned | no |
+engine_version | The database engine version. Updating this argument results in an outage.| string | - | no |
+source_region | The source region for an encrypted replica DB cluster.| string | - | no |
+enabled_cloudwatch_logs_exports | List of log types to export to cloudwatch. If omitted, no logs will be exported. | list | - | no |
+scaling_configuration | Nested attribute with scaling properties. Only valid when engine_mode is set to serverless. More details below.| string | - | no |
+tags | A mapping of tags to assign to the DB cluster.| map | - | no |
 
 
-output "s3_import_id" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.id,list("")),0)}"
-}
-output "s3_import_port" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.port,list("")),0)}"
-}
-output "s3_import_engine" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.engine,list("")),0)}"
-}
-output "s3_import_status" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.status,list("")),0)}"
-}
-output "s3_import_endpoint" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.endpoint,list("")),0)}"
-}
-output "s3_import_database_name" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.database_name,list("")),0)}"
-}
-output "s3_import_hosted_zone_id" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.hosted_zone_id,list("")),0)}"
-}
-output "s3_import_engine_version" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.engine_version,list("")),0)}"
-}
-output "s3_import_cluster_members" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.cluster_members,list("")),0)}"
-}
-output "s3_import_reader_endpoint" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.reader_endpoint,list("")),0)}"
-}
-output "s3_import_master_username" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.master_username,list("")),0)}"
-}
-output "s3_import_allocated_storage" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.allocated_storage,list("")),0)}"
-}
-output "s3_import_storage_encrypted" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.storage_encrypted,list("")),0)}"
-}
-output "s3_import_availability_zones" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.availability_zones,list("")),0)}"
-}
-output "s3_import_cluster_identifier" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.cluster_identifier,list("")),0)}"
-}
-output "s3_import_maintenance_window" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.maintenance_window,list("")),0)}"
-}
-output "s3_import_cluster_resource_id" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.cluster_resource_id,list("")),0)}"
-}
-output "s3_import_backup_retention_period" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.backup_retention_period,list("")),0)}"
-}
-output "s3_import_preferred_backup_window" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.preferred_maintenance_window,list("")),0)}"
-}
-output "s3_import_preferred_maintenance_window" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.preferred_maintenance_window,list("")),0)}"
-}
-output "s3_import_replication_source_identifier" {
-  value = "${element(concat(aws_rds_cluster.rc_s3_import.*.replication_source_identifier,list("")),0)}"
-}
-```
+| Name | Description |
+|------|-------------|
+|arn | Amazon Resource Name (ARN) of cluster |
+|id | The RDS Cluster Identifier |
+|cluster_identifier | The RDS Cluster Identifier |
+|cluster_resource_id | The RDS Cluster Resource ID |
+|cluster_members | List of RDS Instances that are a part of this cluster |
+|allocated_storage | The amount of allocated storage |
+|availability_zones | The availability zone of the instance |
+|backup_retention_period | The backup retention period |
+|preferred_backup_window | The daily time range during which the backups happen |
+|preferred_maintenance_window | The maintenance window |
+|endpoint | The DNS address of the RDS instance |
+|reader_endpoint | A read-only endpoint for the Aurora cluster, automatically load-balanced across replicas |
+|engine | The database engine |
+|engine_version | The database engine version |
+|maintenance_window | The instance maintenance window |
+|database_name | The database name |
+|port | The database port |
+|status | The RDS instance status |
+|master_username | The master username for the database |
+|storage_encrypted | Specifies whether the DB cluster is encrypted |
+|replication_source_identifier | ARN of the source DB cluster or DB instance if this DB cluster is created as a Read Replica. |
+|hosted_zone_id | The Route53 Hosted Zone ID of the endpoint |
+
 
 ###### Documentation
-[aws_db_subnet_group](https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html)
+[aws_rds_cluster](https://www.terraform.io/docs/providers/aws/r/rds_cluster.html)

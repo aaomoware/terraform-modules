@@ -1,9 +1,9 @@
 resource "aws_rds_cluster_instance" "rci" {
+  count = "${var.instances}"
 
-  tags                            = "${var.tags}"
-  count                           = "${var.ccount}"
+  tags                            = "${merge(var.tags, map("Name", "${length(var.instances) > 0 ? "${lookup(var.tags, "Name")}-${format("%02d", count.index + 1)}" : "${lookup(var.tags, "Name")}" }"))}"
   engine                          = "${var.engine}"
-  identifier                      = "${var.identifier}"
+  identifier                      = "${var.identifier}-${format("%02d", count.index + 1)}"
   instance_class                  = "${var.instance_class}"
   promotion_tier                  = "${var.promotion_tier}"
   engine_version                  = "${var.engine_version}"
