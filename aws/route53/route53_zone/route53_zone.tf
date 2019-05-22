@@ -11,7 +11,7 @@ resource "aws_route53_zone" "zones_vpc" {
   force_destroy = "${var.force_destroy}"
 
   lifecycle {
-    ignore_changes = [vpc]
+    ignore_changes = ["vpc"]
   }
 }
 
