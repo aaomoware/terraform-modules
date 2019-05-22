@@ -9,6 +9,10 @@ resource "aws_route53_zone" "zones_vpc" {
   name          = "${var.name}"
   comment       = "${var.comment}"
   force_destroy = "${var.force_destroy}"
+
+  lifecycle {
+    ignore_changes = [vpc]
+  }
 }
 
 resource "aws_route53_zone" "zones_set_id" {
