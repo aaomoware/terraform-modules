@@ -1,2 +1,2 @@
-variable name        {}
-variable region_nane { type = "list" }
+variable name {}
+variable region_nane {}
