@@ -1,190 +1,46 @@
-
 ####  ECS Service
 
+This module provides means to create an ECS Service.
 
-###### Variables
-```
-variable name {}
-variable task_definition {}
+## Variables
 
-variable desired_count {
-  default = 0
-}
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+|name - | The name of the service (up to 255 letters, numbers, hyphens, and underscores) | string | - | yes |
+|task_definition | The family and revision (family:revision) or full ARN of the task definition that you want to run in your service | string | - | yes |
+|desired_count | The number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the DAEMON scheduling | string | - | no |
+|launch_type | The launch type on which to run your service. The valid values are EC2 and FARGATE | string | EC2 | no |
+|platform_version | The platform version on which to run your service. Only applicable for launch_type set to FARGATE | string | LATEST | no | |
+|scheduling_strategy | The scheduling strategy to use for the service. The valid values are REPLICA and DAEMON | string | REPLICA | no |
+|cluster | ARN of an ECS cluster | string | - | no |
+|iam_role | ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf | string | - | yes |
+|deployment_controller | Configuration block containing deployment controller configuration. Defined below. | string | - | no |
+|deployment_maximum_percent | The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a | string | - | no |
+|deployment_minimum_healthy_percent | The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain | string | - | no |
+|enable_ecs_managed_tags | Specifies whether to enable Amazon ECS managed tags for the tasks within the service | boolean | - | no |
+|propagate_tags | Specifies whether to propagate the tags from the task definition or the service to the tasks. | boolean | - | no |
+|ordered_placement_strategy | Service level strategy rules that are taken into consideration during task placement | integer | - | no |
+|health_check_grace_period_seconds - (Optional) Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown,  | string | - | no |
+|load_balancer | A load balancer block. Load balancers documented below | string | - | no |
+|placement_constraints | Rules that are taken into consideration during task placement | map | - | no |
+|network_configuration | The network configuration for the service | map | - | no |
+|service_registries | The service discovery registries for the service | map | - | no |
+|tags | Key-value mapping of resource tags | map | - | no |
 
-variable launch_type {
-  default = "EC"
-}
 
-variable platform_version {
-  default = "LATEST"
-}
+## Outputs
 
-variable scheduling_strategy {
-  default = "REPLICA"
-}
+| Name | Description |
+|------|-------------|
+|id | The Amazon Resource Name (ARN) that identifies the service |
+|name | The name of the service |
+|cluster | The Amazon Resource Name (ARN) of cluster which the service runs on |
+|iam_role | The ARN of IAM role used for ELB |
+|desired_count | The number of instances of the task definition |
 
-variable cluster {
-  default = ""
-}
+## Testing
+See tests folder
 
-variable iam_role {
-  default = ""
-}
 
-variable deployment_maximum_percent {
-  default = ""
-}
-
-variable deployment_minimum_healthy_percent {
-  default = ""
-}
-
-variable enable_ecs_managed_tags {
-  default = false
-}
-
-variable propagate_tags {
-  default = "SERVICE"
-}
-
-variable health_check_grace_period_seconds {
-  default = 1050
-}
-
-variable network_configuration {
-  default = ""
-}
-
-variable service_registries {
-  default = ""
-}
-
-variable tags {
-  default = []
-
-  type = "list"
-}
-
-# deployment_controller
-variable dc_type {
-  default = "ECS"
-}
-
-# load_balancer
-# https://www.terraform.io/docs/providers/aws/r/ecs_service.html#load_balancer-1
-variable elb_name {
-  default = ""
-}
-
-variable target_group_arn {
-  default = ""
-}
-
-variable container_name {
-  default = ""
-}
-
-variable container_port {
-  default = ""
-}
-
-# ordered_placement_strategy
-# https://www.terraform.io/docs/providers/aws/r/ecs_service.html#ordered_placement_strategy-1
-variable ops_type {
-  default = "binpack"
-}
-
-variable ops_field {
-  default = "memory"
-}
-
-# placement_constraints
-# https://www.terraform.io/docs/providers/aws/r/ecs_service.html#placement_constraints-1
-variable pc_type {
-  default = "memberOf"
-}
-
-variable expression {
-  default = "attribute:ecs.instance-type == t2.small"
-}
-
-# network_configuration
-# https://www.terraform.io/docs/providers/aws/r/ecs_service.html#network_configuration-1
-variable subnets {
-  default = []
-  type    = "list"
-}
-
-variable security_groups {
-  default = []
-  type    = "list"
-}
-
-variable assign_public_ip {
-  default = false
-}
-
-# service_registries
-# https://www.terraform.io/docs/providers/aws/r/ecs_service.html#service_registries-1
-variable registry_arn {
-  default = ""
-}
-
-variable port {
-  default = ""
-}
-
-variable container_port {
-  default = ""
-}
-
-variable container_name {
-  default = ""
-}
-```
-
-##### Outputs
-```
-output "id" {
-  value = "${element(concat(aws_ecs_service.es_daemon.*.id, list("")), 0)}"
-}
-
-output "name" {
-  value = "${element(concat(aws_ecs_service.es_daemon.*.name, list("")), 0)}"
-}
-
-output "cluster" {
-  value = "${element(concat(aws_ecs_service.es_daemon.*.cluster, list("")), 0)}"
-}
-
-output "iam_role" {
-  value = "${element(concat(aws_ecs_service.es_daemon.*.iam_role, list("")), 0)}"
-}
-
-output "desired_count" {
-  value = "${element(concat(aws_ecs_service.es_daemon.*.desired_count, list("")), 0)}"
-}
-
-output "id" {
-  value = "${element(concat(aws_ecs_service.es.*.id, list("")), 0)}"
-}
-
-output "name" {
-  value = "${element(concat(aws_ecs_service.es.*.name, list("")), 0)}"
-}
-
-output "cluster" {
-  value = "${element(concat(aws_ecs_service.es.*.cluster, list("")), 0)}"
-}
-
-output "iam_role" {
-  value = "${element(concat(aws_ecs_service.es.*.iam_role, list("")), 0)}"
-}
-
-output "desired_count" {
-  value = "${element(concat(aws_ecs_service.es.*.desired_count, list("")), 0)}"
-}
-```
-
-###### Documentation
-[aws_ecs_service](https://www.terraform.io/docs/providers/aws/r/ecs_service.html#load_balancer)
+## Documentation
+[aws_ecs_service](https://www.terraform.io/docs/providers/aws/r/ecs_service.html)

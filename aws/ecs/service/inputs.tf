@@ -1,4 +1,13 @@
 variable name {}
+
+variable replica {
+  default = false
+}
+
+variable daemon {
+  default = false
+}
+
 variable task_definition {}
 
 variable desired_count {
@@ -6,7 +15,7 @@ variable desired_count {
 }
 
 variable launch_type {
-  default = "EC"
+  default = "EC2"
 }
 
 variable platform_version {
@@ -26,11 +35,11 @@ variable iam_role {
 }
 
 variable deployment_maximum_percent {
-  default = ""
+  default = 100
 }
 
 variable deployment_minimum_healthy_percent {
-  default = ""
+  default = 0
 }
 
 variable enable_ecs_managed_tags {
@@ -38,15 +47,11 @@ variable enable_ecs_managed_tags {
 }
 
 variable propagate_tags {
-  default = "SERVICE"
+  default = "TASK_DEFINITION"
 }
 
 variable health_check_grace_period_seconds {
   default = 1050
-}
-
-variable network_configuration {
-  default = ""
 }
 
 variable service_registries {
@@ -57,29 +62,6 @@ variable tags {
   default = []
 
   type = "list"
-}
-
-# deployment_controller
-variable dc_type {
-  default = "ECS"
-}
-
-# load_balancer
-# https://www.terraform.io/docs/providers/aws/r/ecs_service.html#load_balancer-1
-variable elb_name {
-  default = ""
-}
-
-variable target_group_arn {
-  default = ""
-}
-
-variable container_name {
-  default = ""
-}
-
-variable container_port {
-  default = ""
 }
 
 # ordered_placement_strategy
@@ -98,15 +80,8 @@ variable pc_type {
   default = "memberOf"
 }
 
-variable expression {
+variable pc_expression {
   default = "attribute:ecs.instance-type == t2.small"
-}
-
-# network_configuration
-# https://www.terraform.io/docs/providers/aws/r/ecs_service.html#network_configuration-1
-variable subnets {
-  default = []
-  type    = "list"
 }
 
 variable security_groups {
@@ -128,10 +103,18 @@ variable port {
   default = ""
 }
 
-variable container_port {
+variable elb_name {
   default = ""
 }
 
-variable container_name {
-  default = ""
+variable container_name {}
+variable container_port {}
+variable target_group_arn {}
+
+variable subnets {
+  type = "list"
+}
+
+variable dc_type {
+  default = "ECS"
 }

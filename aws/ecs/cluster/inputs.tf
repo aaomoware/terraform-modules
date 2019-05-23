@@ -1,7 +1,7 @@
 variable name {}
 
 variable tags {
-  default = []
+  default = {}
 
-  type = "list"
+  type = "map"
 }

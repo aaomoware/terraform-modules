@@ -1,28 +1,28 @@
 
-####  ECS Cluster
+##  ECS Cluster
+
+This module provides means to create an ECS cluster.
 
 
-###### Variables
-```
-variable name {}
+## Variables
 
-variable tags {
-  default = []
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| name | The name of the cluster (up to 255 letters, numbers, hyphens, and underscores) | string | - | yes |
+| tags | Key-value mapping of resource tags | map | - | no |
 
-  type = "list"
-}
-```
 
-##### Outputs
-```
-output "ecs_cluster_id" {
-  value = "${aws_ecs_cluster.ecs_cluster.id}"
-}
+## Outputs
 
-output "ecs_cluster_arn" {
-  value = "${aws_ecs_cluster.ecs_cluster.arn}"
-}
-```
+| Name | Description |
+|------|-------------|
+| ecs_cluster_id | The Amazon Resource Name (ARN) that identifies the cluster |
+| ecs_cluster_arn | The Amazon Resource Name (ARN) that identifies the cluster |
 
-###### Documentation
+
+
+## Testing
+See tests folder
+
+## Documentation
 [aws_ecs_cluster](https://www.terraform.io/docs/providers/aws/r/ecs_cluster.html)
