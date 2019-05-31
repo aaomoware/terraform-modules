@@ -1,1 +1,3 @@
-variable cloudwatch_role_arn { default = "" }
+variable cloudwatch_role_arn {
+  default = ""
+}
