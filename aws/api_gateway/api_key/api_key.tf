@@ -1,5 +1,4 @@
 resource "aws_api_gateway_api_key" "MyDemoApiKey" {
-
   name        = "${var.name}"
   value       = "${var.value}"
   enabled     = "${var.enabled}"
