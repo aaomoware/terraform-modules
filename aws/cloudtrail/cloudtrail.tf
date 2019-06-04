@@ -1,4 +1,6 @@
 resource "aws_cloudtrail" "ct" {
+  count = "${var.es ? 0 : 1 }"
+
   name                          = "${var.name}"
   tags                          = "${var.tags}"
   kms_key_id                    = "${var.kms_key_id}"
@@ -11,10 +13,7 @@ resource "aws_cloudtrail" "ct" {
   enable_log_file_validation    = "${var.enable_log_file_validation}"
   cloud_watch_logs_group_arn    = "${var.cloud_watch_logs_group_arn}"
   include_global_service_events = "${var.include_global_service_events}"
-
-  tags = "${var.tags}"
 }
-
 
 resource "aws_cloudtrail" "ct_es" {
   count = "${var.es ? 1 : 0 }"
@@ -41,6 +40,4 @@ resource "aws_cloudtrail" "ct_es" {
       values = ["${var.values}"]
     }
   }
-
-  tags = "${var.tags}"
 }
