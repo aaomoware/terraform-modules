@@ -8,7 +8,7 @@ variable role {
 }
 
 variable policy_arn {
-  type = "map"
+  type = "list"
 }
 ```
 
